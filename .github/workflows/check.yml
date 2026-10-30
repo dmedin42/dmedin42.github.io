@@ -42,3 +42,5 @@ jobs:
           check /projects/  200 "LexiTrack"
           check /nope       404 "Page not found"
           check /assets/styles.css 200 "--brand"
+          check /images/headshot.jpg 200 ""
+          check /resume.pdf 200 "PDF"
