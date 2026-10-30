@@ -1,0 +1,4 @@
+<%# Photo frame. Shows a placeholder until the image file exists. Pass: src, alt %>
+<figure class="photo">
+  <img src="<%= src %>" alt="<%= alt %>" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'placeholder',textContent:'Add public<%= src %>'}))">
+</figure>
