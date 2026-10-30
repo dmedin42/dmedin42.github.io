@@ -25,6 +25,9 @@ async function write(file, html) {
 (async () => {
   await fs.promises.rm(out, { recursive: true, force: true });
   await fs.promises.cp(path.join(root, "public"), out, { recursive: true });
+  if (fs.existsSync(path.join(root, "resume.pdf"))) {
+    await fs.promises.copyFile(path.join(root, "resume.pdf"), path.join(out, "resume.pdf"));
+  }
 
   for (const page of pages) {
     const file = page.path === "/" ? "index.html" : path.join(page.path.slice(1), "index.html");
