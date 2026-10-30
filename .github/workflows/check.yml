@@ -1,0 +1,44 @@
+# Runs on every push: installs, builds the static site, starts the Express server,
+# and checks that each page loads. Catches broken templates before they reach main.
+name: Check site
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+
+      - name: Build static site
+        run: |
+          npm run build
+          for f in index.html about/index.html projects/index.html 404.html CNAME assets/styles.css; do
+            test -s "dist/$f" || { echo "Missing dist/$f"; exit 1; }
+          done
+          grep -q 'aria-current="page"' dist/about/index.html
+
+      - name: Start server and check routes
+        run: |
+          npm start &
+          for i in $(seq 1 20); do curl -fs http://localhost:3000/ >/dev/null && break; sleep 0.5; done
+          check() {
+            code=$(curl -s -o /tmp/page.html -w "%{http_code}" "http://localhost:3000$1")
+            echo "$1 -> $code"
+            [ "$code" = "$2" ] || exit 1
+            grep -q "$3" /tmp/page.html || { echo "  missing: $3"; exit 1; }
+          }
+          check /           200 "Hi, I'm David"
+          check /about      200 "My Story"
+          check /about/     200 "My Story"
+          check /projects   200 "LexiTrack"
+          check /projects/  200 "LexiTrack"
+          check /nope       404 "Page not found"
+          check /assets/styles.css 200 "--brand"
