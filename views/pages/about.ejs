@@ -1,0 +1,47 @@
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+
+      <section aria-labelledby="story-h">
+        <h1 id="story-h">My Story <span class="emoji" aria-hidden="true">📖</span></h1>
+        <div class="split">
+          <div>
+            <% site.story.forEach(paragraph => { %><p><%= paragraph %></p><% }) %>
+          </div>
+          <%- include("../partials/photo", { src: site.photos.about, alt: site.name }) %>
+        </div>
+      </section>
+
+      <section aria-labelledby="skills-h" class="skills">
+        <h2 id="skills-h">Skills <span class="emoji" aria-hidden="true">🧰</span></h2>
+        <% site.skills.forEach(group => { %>
+        <p><span class="label"><%= group.label %>:</span> <%= group.items %></p>
+        <% }) %>
+      </section>
+
+      <section aria-labelledby="edu-h" class="edu">
+        <h2 id="edu-h">Education <span class="emoji" aria-hidden="true">🎓</span></h2>
+        <% site.education.forEach(degree => { %>
+        <h3><%= degree.title %> <span class="year">(<%= degree.year %>)</span></h3>
+        <p><%= degree.detail %></p>
+        <% }) %>
+        <% if (site.recognition) { %>
+        <h3>Recognition</h3>
+        <p><%= site.recognition %></p>
+        <% } %>
+      </section>
+
+      <section aria-labelledby="experience-h">
+        <h2 id="experience-h">My Work <span class="emoji" aria-hidden="true">💼</span></h2>
+        <ul class="jobs">
+          <% site.jobs.forEach(job => { %>
+          <li>
+            <h3><%= job.title %></h3>
+            <p class="where"><%= job.org %> &middot; <%= job.dates %></p>
+            <p><%= job.summary %></p>
+          </li>
+          <% }) %>
+        </ul>
+        <p style="margin-top:1.25rem"><a href="/projects/">Check out the projects I've built</a></p>
+      </section>
+
+<%- include("../partials/footer") %>
