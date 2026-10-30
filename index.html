@@ -4,261 +4,95 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>David Medina | Information Systems, BYU</title>
-  <meta name="description" content="David Medina is a BYU Information Systems student focused on systems consulting, enterprise systems, and automation. Graduating December 2027.">
-
-  <!--
-    BEFORE YOU PUBLISH: search this file for "TODO". There are 4 things to fill in:
-      1. Your GitHub username (header link)
-      2. resume.pdf (upload it to the repo root, or delete the Resume link)
-      3. Links for each project (repo or live demo)
-      4. The third project card (rename it and add a measured outcome)
-  -->
-
-  <style>
-    :root {
-      --bg: #fbfaf7;
-      --surface: #ffffff;
-      --text: #1c2430;
-      --muted: #4a5565;
-      --accent: #0b4f6c;
-      --line: #dcd8cf;
-      --tag-bg: #eef3f5;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #10151c;
-        --surface: #171e27;
-        --text: #e8ecf1;
-        --muted: #aab4c0;
-        --accent: #7cc4e4;
-        --line: #2b3542;
-        --tag-bg: #1f2a36;
-      }
-    }
-
-    * { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 1.0625rem;
-      line-height: 1.6;
-    }
-    .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
-
-    a { color: var(--accent); text-underline-offset: 0.18em; }
-    a:hover { text-decoration-thickness: 2px; }
-    a:focus-visible, .skip:focus {
-      outline: 3px solid var(--accent);
-      outline-offset: 3px;
-      border-radius: 2px;
-    }
-
-    .skip {
-      position: absolute; left: -999rem; top: 0.5rem;
-      background: var(--surface); color: var(--accent);
-      padding: 0.5rem 0.9rem; border-radius: 4px; font-weight: 600;
-    }
-    .skip:focus { left: 0.5rem; }
-
-    /* Header */
-    header { padding: 3.5rem 0 2.5rem; border-bottom: 1px solid var(--line); }
-    h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.25rem, 7vw, 3.25rem);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      margin: 0 0 0.75rem;
-    }
-    .role { font-size: 1.2rem; margin: 0 0 0.35rem; }
-    .meta { color: var(--muted); margin: 0 0 1.5rem; }
-    .links {
-      list-style: none; padding: 0; margin: 0;
-      display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
-      font-weight: 600;
-    }
-
-    /* Sections */
-    section { padding: 2.75rem 0 0.5rem; }
-    h2 {
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 0 0 1.25rem;
-    }
-    h3 { font-size: 1.2rem; line-height: 1.3; margin: 0 0 0.4rem; }
-    p { margin: 0 0 1rem; }
-
-    /* Projects */
-    .projects { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--accent);
-      border-radius: 6px;
-      padding: 1.25rem 1.35rem 1.1rem;
-    }
-    .card p { margin-bottom: 0.75rem; }
-    .outcome { font-weight: 600; }
-    .stack { list-style: none; padding: 0; margin: 0 0 0.75rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .stack li {
-      background: var(--tag-bg);
-      border-radius: 999px;
-      padding: 0.1rem 0.7rem;
-      font-size: 0.875rem;
-    }
-    .card-links { margin: 0; font-weight: 600; }
-    .card-links a + a { margin-left: 1.25rem; }
-
-    /* Experience */
-    .jobs { list-style: none; padding: 0; margin: 0; }
-    .jobs > li { padding: 0 0 1.5rem; }
-    .when { color: var(--muted); font-size: 0.95rem; margin: 0 0 0.4rem; }
-    .jobs p:last-child { margin-bottom: 0; }
-
-    /* Skills */
-    dl { margin: 0; }
-    dt { font-weight: 700; margin-top: 0.9rem; }
-    dt:first-child { margin-top: 0; }
-    dd { margin: 0; color: var(--muted); }
-
-    footer {
-      margin-top: 2.5rem;
-      padding: 1.75rem 0 3rem;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-  </style>
+  <meta name="description" content="David Medina is a BYU Information Systems student focused on systems consulting, enterprise systems, and automation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to main content</a>
 
-  <header>
-    <div class="wrap">
-      <h1>David Medina</h1>
-      <p class="role">Systems consulting, enterprise systems, and automation</p>
-      <p class="meta">Information Systems, Brigham Young University &middot; Graduating December 2027</p>
-      <ul class="links">
-        <li><a href="mailto:d.medina2332@gmail.com">d.medina2332@gmail.com</a></li>
-        <li><a href="https://github.com/dmedin42>GitHub">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/davidmedina42">LinkedIn</a></li>
-        <li><a href="resume.pdf">Resume</a></li>
-      </ul>
+  <header class="banner">
+    <div class="banner-top">
+      <svg class="banner-art" viewBox="0 0 1200 68" preserveAspectRatio="none" aria-hidden="true">
+        <rect width="1200" height="68" fill="#1b4332"/>
+        <path d="M0 40 C 180 18, 330 52, 520 30 S 860 12, 1020 30 S 1150 40, 1200 26 V68 H0Z" fill="#23513b" opacity="0.9"/>
+        <path d="M0 52 C 220 36, 380 64, 600 46 S 920 34, 1200 50 V68 H0Z" fill="#2d6a4f" opacity="0.85"/>
+      </svg>
+      <svg class="banner-peak" viewBox="0 0 140 68" aria-hidden="true">
+        <path d="M8 68 L52 22 L66 36 L86 10 L132 68Z" fill="#52896a"/>
+        <path d="M86 10 L78 20 L84 18 L88 24 L92 17 L97 21Z" fill="#e8f3ec"/>
+        <path d="M52 22 L46 30 L52 28 L57 32Z" fill="#e8f3ec"/>
+      </svg>
+      <p class="banner-name"><a href="./">David Medina</a></p>
     </div>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="./" aria-current="page"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3L12 3Z"/></svg>Home</a></li>
+        <li><a href="about/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5Z"/></svg>About Me</a></li>
+        <li><a href="projects/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Zm4 3v2h10V8H7Zm0 4v2h7v-2H7Z"/></svg>Projects</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main id="main">
-    <div class="wrap">
+    <div class="col">
 
-      <section aria-labelledby="projects-heading">
-        <h2 id="projects-heading">Projects</h2>
-        <ul class="projects">
+      <section class="hero">
+        <div>
+          <h1>Hi, I'm David <span class="emoji" aria-hidden="true">👋</span></h1>
+          <p class="lede">Information Systems student at BYU, focused on systems consulting, enterprise systems, and automation.</p>
+          <p>I like the space between a business problem and the system that solves it. Right now I build Workday automations for BYU's Office of Information Technology. Graduating December 2027.</p>
+          <div class="btns">
+            <a class="btn primary" href="projects/">See my projects</a>
+            <a class="btn" href="about/">About me</a>
+            <a class="btn" href="resume.pdf">Resume</a>
+          </div>
+        </div>
+          <!-- TODO: add a headshot at images/headshot.jpg -->
+          <figure class="photo">
+            <img src="images/headshot.jpg" alt="David Medina" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'placeholder',textContent:'Add images/headshot.jpg'}))">
+          </figure>
+      </section>
 
-          <li class="card">
-            <h3>AI Reading Assessment Platform</h3>
-            <p>A progressive web app that automates pronunciation assessments, so teachers no longer score each student's reading by hand.</p>
-            <p class="outcome">Outcome: saves teachers 30 days of instruction time per year.</p>
-            <ul class="stack" aria-label="Built with">
-              <li>Azure Speech Assessment</li>
-              <li>Supabase</li>
-              <li>Vercel</li>
-            </ul>
-            <!-- TODO 3: add your links, then remove the comment markers around the next line
-            <p class="card-links"><a href="https://YOUR-LIVE-DEMO-URL">Live demo</a><a href="https://github.com/YOUR-USERNAME/REPO-NAME">Code</a></p>
-            -->
-          </li>
-
-          <li class="card">
-            <h3>AI-Powered Food Waste Reduction App</h3>
-            <p>A progressive web app that tracks a home pantry automatically: what is in it, what is about to expire, and recipes that use it up.</p>
-            <p class="outcome">Outcome: reduced household food waste by 50%.</p>
-            <ul class="stack" aria-label="Built with">
-              <li>Gemini AI</li>
-              <li>Supabase</li>
-              <li>Vercel</li>
-            </ul>
-            <!-- TODO 3: add your links, then remove the comment markers around the next line
-            <p class="card-links"><a href="https://YOUR-LIVE-DEMO-URL">Live demo</a><a href="https://github.com/YOUR-USERNAME/REPO-NAME">Code</a></p>
-            -->
-          </li>
-
-          <!-- TODO 4: give this card the real name of the app, say what it does, and add a measured outcome -->
-          <li class="card">
-            <h3>Web Applications for the BYU Tech Transfer Office</h3>
-            <p>Full-stack web applications developed and deployed at the BYU Tech Transfer Office, where I managed a portfolio of 55+ university technologies.</p>
-            <ul class="stack" aria-label="Built with">
-              <li>Claude AI</li>
-              <li>Supabase</li>
-              <li>SQL</li>
-              <li>Git</li>
-            </ul>
-            <!-- TODO 3: add your links, then remove the comment markers around the next line
-            <p class="card-links"><a href="https://YOUR-LIVE-DEMO-URL">Live demo</a><a href="https://github.com/YOUR-USERNAME/REPO-NAME">Code</a></p>
-            -->
-          </li>
-
+      <section aria-labelledby="focus-h">
+        <h2 id="focus-h">What I Do <span class="emoji" aria-hidden="true">🧭</span></h2>
+        <ul class="focus-list">
+          <li><span class="emoji" aria-hidden="true">🤝</span><h3>Systems consulting</h3><p>Turning what stakeholders need into technical solutions.</p></li>
+          <li><span class="emoji" aria-hidden="true">🏢</span><h3>Enterprise systems</h3><p>Workday, Workday Orchestration, integrations, and reporting.</p></li>
+          <li><span class="emoji" aria-hidden="true">⚙️</span><h3>Automation</h3><p>Full-stack apps and workflows that take manual work off people's plates.</p></li>
         </ul>
       </section>
 
-      <section aria-labelledby="about-heading">
-        <h2 id="about-heading">About</h2>
-        <p>I am a junior in Information Systems at BYU's Marriott School of Business, with an emphasis in systems consulting. I like the space between a business problem and the system that solves it: sitting down with the people who do the work, figuring out what they need, and then building it.</p>
-        <p>Right now I build Workday automations for BYU's Office of Information Technology. Before that I spent a year at BYU's Tech Transfer Office, and two years in Recife, Brazil, managing finances for an organization of 200+ volunteers.</p>
-      </section>
-
-      <section aria-labelledby="experience-heading">
-        <h2 id="experience-heading">Experience</h2>
-        <ul class="jobs">
-          <li>
-            <h3>Workday Developer</h3>
-            <p class="when">BYU Office of Information Technology &middot; Sep 2026 to present</p>
-            <p>Work with Finance and HR stakeholders to turn business needs into technical solutions, and automate their workflows with Workday Orchestrations.</p>
-          </li>
-          <li>
-            <h3>Technology Commercialization Analyst</h3>
-            <p class="when">BYU Tech Transfer Office &middot; Sep 2025 to Sep 2026</p>
-            <p>Managed a portfolio of 55+ university technologies, coordinating with researchers, entrepreneurs, and industry partners. Developed and deployed full-stack web applications.</p>
-          </li>
-          <li>
-            <h3>Financial Advisor</h3>
-            <p class="when">Lease End &middot; May 2025 to Sep 2025</p>
-            <p>Generated $48,000 in revenue in my first 45 days by consulting customers through their lease buyouts.</p>
-          </li>
-          <li>
-            <h3>Finance Secretary and Volunteer Representative</h3>
-            <p class="when">The Church of Jesus Christ of Latter-day Saints, Recife, Brazil &middot; Jul 2022 to Jul 2024</p>
-            <p>Oversaw an annual budget of more than R$3.5M and managed financial operations in Oracle for 200+ representatives, covering auditing, resource allocation, and budget administration.</p>
-          </li>
-        </ul>
-      </section>
-
-      <section aria-labelledby="skills-heading">
-        <h2 id="skills-heading">Skills</h2>
-        <dl>
-          <dt>Enterprise systems</dt>
-          <dd>Workday, Workday Orchestration, API integrations, business process automation, reporting</dd>
-          <dt>Development</dt>
-          <dd>Python, JavaScript, Next.js, HTML/CSS, SQL, Git, Supabase</dd>
-          <dt>Data and analytics</dt>
-          <dd>Tableau, advanced Excel, VBA, Claude AI</dd>
-          <dt>Consulting</dt>
-          <dd>Stakeholder management, process improvement, project management</dd>
-        </dl>
+      <section aria-labelledby="featured-h">
+        <h2 id="featured-h">Featured Project <span class="emoji" aria-hidden="true">⭐</span></h2>
+        <div class="project">
+          <h3>LexiTrack: AI Reading Assessment Platform</h3>
+          <p>A progressive web app that automates pronunciation assessments, so teachers no longer score each student's reading by hand.</p>
+          <p class="outcome">Saves teachers 30 days of instruction time per year.</p>
+          <p class="card-links"><a href="https://lexitrack-app.vercel.app" target="_blank" rel="noopener">Live demo</a><a href="projects/">All projects</a></p>
+        </div>
       </section>
 
     </div>
   </main>
 
   <footer>
-    <div class="wrap">
-      <p>David Medina &middot; Provo, Utah &middot; <a href="mailto:d.medina2332@gmail.com">d.medina2332@gmail.com</a></p>
+    <div class="col">
+      <p>David Medina &middot; Provo, Utah</p>
+      <ul>
+        <li><a href="mailto:d.medina2332@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/davidmedina42">LinkedIn</a></li>
+        <li><a href="https://github.com/dmedin42">GitHub</a></li>
+        <li><a href="resume.pdf">Resume</a></li>
+      </ul>
     </div>
   </footer>
+
+  <button class="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14l6-6 6 6"/></svg>
+  </button>
+  <script src="assets/script.js"></script>
 </body>
 </html>
