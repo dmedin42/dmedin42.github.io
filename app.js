@@ -15,6 +15,9 @@ app.locals.year = new Date().getFullYear();
 
 app.use(express.static(path.join(__dirname, "public")));
 
+// resume.pdf lives at the repo root so it's easy to replace.
+app.get("/resume.pdf", (req, res) => res.sendFile(path.join(__dirname, "resume.pdf")));
+
 // One entry per page. `key` marks the active nav link.
 const pages = [
   { path: "/", key: "home", view: "pages/home", title: "David Medina | Information Systems, BYU", description: site.description },
