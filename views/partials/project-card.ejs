@@ -1,0 +1,18 @@
+<%# One project card. Pass: project, showStack (default true), extraLink (optional {href,label}) %>
+<% const withStack = typeof showStack === "undefined" ? true : showStack; %>
+<h3><%= project.name %></h3>
+<p><%= project.summary %></p>
+<% if (project.outcome) { %><p class="outcome"><%= project.outcome %></p><% } %>
+<% if (withStack && project.stack && project.stack.length) { %>
+<ul class="stack" aria-label="Built with">
+  <% project.stack.forEach(tech => { %><li><%= tech %></li><% }) %>
+</ul>
+<% } %>
+<% const hasExtra = typeof extraLink !== "undefined" && extraLink; %>
+<% if (project.demo || project.code || hasExtra) { %>
+<p class="card-links">
+  <% if (project.demo) { %><a href="<%= project.demo %>" target="_blank" rel="noopener">Live demo</a><% } %>
+  <% if (project.code) { %><a href="<%= project.code %>" target="_blank" rel="noopener">Code</a><% } %>
+  <% if (hasExtra) { %><a href="<%= extraLink.href %>"><%= extraLink.label %></a><% } else if (project.demoNote && project.demo) { %><span class="note"><%= project.demoNote %></span><% } %>
+</p>
+<% } %>
