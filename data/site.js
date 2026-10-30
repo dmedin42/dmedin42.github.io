@@ -83,6 +83,7 @@ module.exports = {
       outcome: "Saves teachers 30 days of instruction time per year.",
       stack: ["Azure Speech Assessment", "Supabase", "Vercel"],
       demo: "https://lexitrack-app.vercel.app",
+      code: "https://github.com/dmedin42/lexitrack",
       demoNote: "Try Sandbox Mode, no account needed",
     },
     {
