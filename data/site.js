@@ -82,7 +82,7 @@ module.exports = {
       summary: "A progressive web app that automates pronunciation assessments, so teachers no longer score each student's reading by hand.",
       outcome: "Saves teachers 30 days of instruction time per year.",
       stack: ["Azure Speech Assessment", "Supabase", "Vercel"],
-      demo: "https://lexitrack-app.vercel.app",
+      demo: "https://lexitrackedu.com",
       code: "https://github.com/dmedin42/lexitrack",
       demoNote: "Try Sandbox Mode, no account needed",
     },
