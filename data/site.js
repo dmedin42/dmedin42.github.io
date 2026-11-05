@@ -94,7 +94,7 @@ module.exports = {
       stack: ["Gemini AI", "Supabase", "Vercel"],
       demo: "https://twofoldkitchen.com",
       code: "https://github.com/dmedin42/twofold",
-      demoNote: "Free account required",
+      demoNote: "Try it as a guest, no account needed",
     },
     {
       id: "tto",
