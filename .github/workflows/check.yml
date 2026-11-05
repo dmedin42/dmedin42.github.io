@@ -44,3 +44,5 @@ jobs:
           check /assets/styles.css 200 "--brand"
           check /images/headshot.jpg 200 ""
           check /resume.pdf 200 "PDF"
+          check /favicon.svg 200 "svg"
+          check /images/about.jpg 200 ""
