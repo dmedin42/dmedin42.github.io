@@ -88,11 +88,13 @@ module.exports = {
     },
     {
       id: "pantry",
-      name: "AI-Powered Food Waste Reduction App",
+      name: "TwoFold: AI-Powered Food Waste Reduction App",
       summary: "A progressive web app that tracks a home pantry automatically: what is in it, what is about to expire, and recipes that use it up.",
       outcome: "Reduced household food waste by 50%.",
       stack: ["Gemini AI", "Supabase", "Vercel"],
-      // TODO: add demo / code links
+      demo: "https://twofoldkitchen.com",
+      code: "https://github.com/dmedin42/twofold",
+      demoNote: "Free account required",
     },
     {
       id: "tto",
