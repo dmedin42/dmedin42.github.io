@@ -1,7 +1,8 @@
 // Renders every page of the Express app to plain HTML in dist/,
 // so the site can be hosted on GitHub Pages (which can't run Node).
 //
-//   npm run build   ->  dist/index.html, dist/about/index.html, dist/projects/index.html, dist/404.html
+//   npm run build   ->  dist/index.html, dist/about/index.html, dist/projects/index.html,
+//                       dist/projects/<id>/index.html for each project, dist/404.html
 const fs = require("fs");
 const path = require("path");
 const { app, pages, notFound } = require("../app");
@@ -31,7 +32,7 @@ async function write(file, html) {
 
   for (const page of pages) {
     const file = page.path === "/" ? "index.html" : path.join(page.path.slice(1), "index.html");
-    await write(file, await render(page.view, { page }));
+    await write(file, await render(page.view, { page, ...page.locals }));
   }
   await write("404.html", await render(notFound.view, { page: notFound }));
 

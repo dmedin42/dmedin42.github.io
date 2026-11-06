@@ -20,7 +20,7 @@ jobs:
       - name: Build static site
         run: |
           npm run build
-          for f in index.html about/index.html projects/index.html 404.html CNAME assets/styles.css; do
+          for f in index.html about/index.html projects/index.html projects/workday/index.html projects/lexitrack/index.html 404.html CNAME assets/styles.css; do
             test -s "dist/$f" || { echo "Missing dist/$f"; exit 1; }
           done
           grep -q 'aria-current="page"' dist/about/index.html
@@ -48,6 +48,15 @@ jobs:
           check /images/story/brazil.jpg 200 ""
           check /projects   200 "LexiTrack"
           check /projects/  200 "LexiTrack"
+          check /projects/  200 'class="project-grid"'
+          check /projects/  200 "Study Smarter AI"
+          check /projects/workday/          200 "Integrations for BYU"
+          check /projects/workday/          200 'class="star"'
+          check /projects/lexitrack         200 "My mom is a teacher"
+          check /projects/twofold/          200 "Having everything isn"
+          check /projects/study-smarter-ai/ 200 "spaced-repetition"
+          check /projects/tech-transfer/    200 "Example I licensed"
+          check /                           200 "Project details"
           check /nope       404 "Page not found"
           check /assets/styles.css 200 "data-theme=\"light\""
           check /assets/script.js 200 "theme-toggle"

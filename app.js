@@ -29,13 +29,18 @@ app.get("/resume.pdf", (req, res) => res.sendFile(path.join(__dirname, "resume.p
 const pages = [
   { path: "/", key: "home", view: "pages/home", title: "David Medina | Information Systems, BYU", description: site.description },
   { path: "/about", key: "about", view: "pages/about", title: "About Me | David Medina", description: "About David Medina: background, skills, education, and work experience." },
-  { path: "/projects", key: "projects", view: "pages/projects", title: "Projects | David Medina", description: "Projects by David Medina, including LexiTrack, an AI reading assessment platform." },
+  { path: "/projects", key: "projects", view: "pages/projects", title: "Projects | David Medina", description: "Projects by David Medina: " + site.projects.map(p => p.short).join(", ") + "." },
+  // One page per project, from data/projects.js.
+  ...site.projects.map(project => ({
+    path: "/projects/" + project.id, key: "projects", view: "pages/project",
+    title: project.name + " | David Medina", description: project.description, locals: { project },
+  })),
 ];
 
 for (const page of pages) {
   // Accept both /about and /about/ so links work the same here and on GitHub Pages.
   const routes = page.path === "/" ? ["/"] : [page.path, page.path + "/"];
-  app.get(routes, (req, res) => res.render(page.view, { page }));
+  app.get(routes, (req, res) => res.render(page.view, { page, ...page.locals }));
 }
 
 const notFound = { key: null, view: "pages/404", title: "Page not found | David Medina", description: site.description };

@@ -3,13 +3,21 @@
 
       <section aria-labelledby="projects-h">
         <h1 id="projects-h">Projects <span class="emoji" aria-hidden="true">🛠️</span></h1>
-        <p class="lede">Things I've built to take manual work off people's plates.</p>
-        <ul class="projects">
-          <% site.projects.forEach(project => { %>
-          <li class="project" id="<%= project.id %>">
-            <%- include("../partials/project-card", { project }) %>
-          </li>
+        <p class="lede"><%= site.projectsPage.lede %></p>
+        <ul class="project-grid">
+          <% site.projects.forEach((project, i) => { %>
+          <%- include("../partials/project-tile", { project, heading: "h2", wide: i === 0 }) %>
           <% }) %>
+          <li class="wide">
+            <div class="pcard pcard-cta">
+              <h2><%= site.projectsPage.cta.title %></h2>
+              <p><%= site.projectsPage.cta.text %></p>
+              <div class="btns">
+                <a class="btn primary" href="mailto:<%= site.links.email %>">Email me</a>
+                <a class="btn" href="<%= site.links.linkedin %>" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+            </div>
+          </li>
         </ul>
       </section>
 

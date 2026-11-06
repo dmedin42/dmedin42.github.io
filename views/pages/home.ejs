@@ -29,7 +29,10 @@
       <section aria-labelledby="featured-h">
         <h2 id="featured-h">Featured Project <span class="emoji" aria-hidden="true">⭐</span></h2>
         <div class="project">
-          <%- include("../partials/project-card", { project: featured, showStack: false, extraLink: { href: "/projects/", label: "All projects" } }) %>
+          <h3><%= site.home.featuredTitle %></h3>
+          <p><%= site.home.featuredSummary %></p>
+          <p class="outcome"><%= featured.outcome %></p>
+          <p class="card-links"><a href="/projects/<%= featured.id %>/">Project details</a><% if (featured.links.length) { %><a href="<%= featured.links[0][1] %>" target="_blank" rel="noopener">Live demo</a><% } %><a href="/projects/">All projects</a></p>
         </div>
       </section>
       <% } %>

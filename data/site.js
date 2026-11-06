@@ -27,7 +27,10 @@ module.exports = {
       { emoji: "🏢", title: "Enterprise systems", text: "Workday, Workday Orchestration, integrations, and reporting." },
       { emoji: "⚙️", title: "Automation", text: "Full-stack apps and workflows that take manual work off people's plates." },
     ],
+    // The project shown on the home page, with its own title and blurb there.
     featuredProject: "lexitrack",
+    featuredTitle: "LexiTrack: AI Reading Assessment Platform",
+    featuredSummary: "A progressive web app that automates pronunciation assessments, so teachers no longer score each student's reading by hand.",
   },
 
   // About page intro, quick facts, and the "How I Got Here" timeline.
@@ -91,7 +94,7 @@ module.exports = {
     {
       date: "2026 – now", place: "BYU Office of Information Technology", title: "My first big project",
       blocks: [
-        { p: "Today I'm a Workday Developer on OIT's data team. Our team touches every part of Workday, both HR and finance, and handles everything beyond the standard reports: integrations, data loads, exports and automations." },
+        { p: "Today I'm a Workday Developer on OIT's data team. Our team works across every part of Workday, both HR and finance: reporting, integrations, data loads, exports and automations." },
         { p: "I started by fixing bugs in Workday Orchestrations and building reports for stakeholders, including historical I-9 reports. My first big project is connecting Workday to new software that BYU's facilities department is adopting. I'm building the critical integrations for their new system: time extracts and time reconciliation, purchasing and general ledger reconciliation, expense report and purchase order details, and invoice payments. The rest come next." },
         { p: "I'm the newest member of the team, but I've been recognized more often than anyone since I joined, for diving in, working hard and learning fast. I think that's because I've worked hard to be a good teammate to them first." },
         { lesson: "Good leadership starts with being the teammate you'd want to have, even when you're the newest one on the team.", label: "What it's teaching me" },
@@ -164,43 +167,13 @@ module.exports = {
   ],
 
   // To add a link, fill in demo and/or code. Leave them out and no link shows.
-  projects: [
-    {
-      id: "lexitrack",
-      name: "LexiTrack: AI Reading Assessment Platform",
-      summary: "A progressive web app that automates pronunciation assessments, so teachers no longer score each student's reading by hand.",
-      outcome: "Saves teachers 30 days of instruction time per year.",
-      stack: ["Azure Speech Assessment", "Supabase", "Vercel"],
-      demo: "https://lexitrackedu.com",
-      code: "https://github.com/dmedin42/lexitrack",
-      demoNote: "Try Sandbox Mode, no account needed",
+  // Project cards and pages live in data/projects.js.
+  projects: require("./projects"),
+  projectsPage: {
+    lede: "Things I've built to take manual work off people's plates. Pick one to see the problem, what I built, and how it turned out.",
+    cta: {
+      title: "Have a process that should run itself?",
+      text: "I like turning slow, manual work into something that just happens. If you have one in mind, I'd love to hear about it.",
     },
-    {
-      id: "pantry",
-      name: "TwoFold: AI-Powered Food Waste Reduction App",
-      summary: "A progressive web app that tracks a home pantry automatically: what is in it, what is about to expire, and recipes that use it up.",
-      outcome: "Reduced household food waste by 50%.",
-      stack: ["Gemini AI", "Supabase", "Vercel"],
-      demo: "https://twofoldkitchen.com",
-      code: "https://github.com/dmedin42/twofold",
-      demoNote: "Try it as a guest, no account needed",
-    },
-    {
-      id: "tto",
-      name: "Web Applications for the BYU Tech Transfer Office",
-      summary: "Full-stack web applications developed and deployed at the BYU Tech Transfer Office, where I managed a portfolio of 55+ university technologies.",
-      stack: ["Claude AI", "Supabase", "SQL", "Git"],
-      // A highlighted example shown inside this card.
-      example: {
-        label: "Example I licensed",
-        name: "CloseChase: Document Collection for Bookkeeping Firms",
-        summary: "A web app that lets bookkeeping firms request, collect, and track the documents they need from clients through one secure upload link, with no client account required. I built it at the BYU Tech Transfer Office and facilitated its licensing.",
-        outcome: "Licensed to TeamOzy and live in beta.",
-        stack: ["React", "JavaScript"],
-        demo: "https://teamozy.org/products/closechase",
-        demoLabel: "Live beta",
-        demoNote: "Free to try during the beta",
-      },
-    },
-  ],
+  },
 };

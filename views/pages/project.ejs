@@ -1,0 +1,52 @@
+<%# One project's page at /projects/<id>/. Content comes from data/projects.js. %>
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+<%
+  const all = site.projects;
+  const n = all.findIndex(p => p.id === project.id);
+  const more = [1, 2].map(k => all[(n + k) % all.length]).filter(p => p.id !== project.id);
+%>
+
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol><li><a href="/">Home</a></li><li><a href="/projects/">Projects</a></li><li aria-current="page"><%= project.short %></li></ol>
+      </nav>
+
+      <header class="project-head">
+        <h1><%= project.name %></h1>
+        <p class="subtitle"><%= project.subtitle %></p>
+        <p class="meta"><% project.meta.forEach((m, i) => { %><% if (i) { %><span class="dot" aria-hidden="true">&middot;</span><% } %><span><%= m %></span><% }) %><span class="status"><%= project.status %></span></p>
+        <p class="lede"><%= project.lede %></p>
+        <% if (project.links.length || project.linkNote) { %>
+        <div class="btns"><% project.links.forEach(([label, href], i) => { %><a class="btn<%= i === 0 ? " primary" : "" %>" href="<%= href %>" target="_blank" rel="noopener"><%= label %></a><% }) %><% if (project.linkNote) { %><span class="note"><%= project.linkNote %></span><% } %></div>
+        <% } %>
+        <% if (project.stats.length) { %>
+        <ul class="stats" aria-label="Results">
+          <% project.stats.forEach(([value, label]) => { %><li><strong><%= value %></strong><span><%= label %></span></li><% }) %>
+        </ul>
+        <% } %>
+      </header>
+
+      <article class="article">
+        <% project.sections.forEach(([heading, body], i) => { %>
+        <section aria-labelledby="<%= project.id %>-s<%= i + 1 %>">
+          <h2 id="<%= project.id %>-s<%= i + 1 %>"><%= heading %></h2>
+          <%- body %>
+        </section>
+        <% }) %>
+        <section aria-labelledby="<%= project.id %>-stack">
+          <h2 id="<%= project.id %>-stack">Built with</h2>
+          <ul class="stack"><% project.stack.forEach(t => { %><li><%= t %></li><% }) %></ul>
+        </section>
+      </article>
+
+      <section class="related" aria-labelledby="<%= project.id %>-more">
+        <h2 id="<%= project.id %>-more">More projects</h2>
+        <ul class="project-grid">
+          <% more.forEach(p => { %>
+          <%- include("../partials/project-tile", { project: p, heading: "h3" }) %>
+          <% }) %>
+        </ul>
+        <p class="back"><a href="/projects/">&larr; All projects</a> <span class="note">or see my <a href="<%= site.links.resume %>">work history</a></span></p>
+      </section>
+
+<%- include("../partials/footer") %>

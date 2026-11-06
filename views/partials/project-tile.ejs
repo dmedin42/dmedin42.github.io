@@ -1,0 +1,11 @@
+<%# One clickable project card. Pass: project, heading ("h2" on /projects, "h3" under "More projects"), wide (optional). %>
+<% const tag = typeof heading === "undefined" ? "h2" : heading; %>
+<li<% if (typeof wide !== "undefined" && wide) { %> class="wide"<% } %>>
+  <article class="pcard">
+    <<%= tag %>><a href="/projects/<%= project.id %>/"><%= tag === "h3" ? project.short : project.name %></a></<%= tag %>>
+    <p class="kind"><%= project.kind %></p>
+    <p class="summary"><%= project.summary %></p>
+    <p class="outcome"><%= project.outcome %></p>
+    <p class="pcard-meta"><span class="status"><%= project.status %></span><span><%= project.year %></span><span class="more" aria-hidden="true">View project &rarr;</span></p>
+  </article>
+</li>
