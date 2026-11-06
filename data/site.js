@@ -196,7 +196,7 @@ module.exports = {
         name: "CloseChase: Document Collection for Bookkeeping Firms",
         summary: "A web app that lets bookkeeping firms request, collect, and track the documents they need from clients through one secure upload link, with no client account required. I built it at the BYU Tech Transfer Office and facilitated its licensing.",
         outcome: "Licensed to TeamOzy and live in beta.",
-        stack: ["Claude AI", "Supabase", "SQL", "Git"],
+        stack: ["React", "JavaScript"],
         demo: "https://teamozy.org/products/closechase",
         demoLabel: "Live beta",
         demoNote: "Free to try during the beta",
