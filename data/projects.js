@@ -209,7 +209,7 @@ module.exports = [
     meta: ["Provo, Utah", "Sep 2025 – Sep 2026", "1 yr"],
     links: [],
     linkNote: "",
-    stats: [["55+", "university technologies in my portfolio"], ["80+", "apps and prototypes built"], ["1 license", "CloseChase, licensed to TeamOzy"]],
+    stats: [["55+", "university technologies in my portfolio"], ["80+", "apps and prototypes built"]],
     sections: [
       ["Situation", `
           <p>I wanted to move into information systems and work closer to technology, and a friend thought the Tech Transfer Office would be a good fit. As a Technology Commercialization Analyst, I managed a portfolio of 55+ university technologies and worked with researchers, entrepreneurs and industry partners to bring them to market. Our product backlog was full of ideas that hadn't been built yet.</p>
