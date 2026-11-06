@@ -64,6 +64,12 @@
         <h3><%= degree.title %> <span class="year">(<%= degree.year %>)</span></h3>
         <p><%= degree.detail %></p>
         <% }) %>
+        <% if (site.certifications && site.certifications.length) { %>
+        <h3>Certifications</h3>
+        <% site.certifications.forEach((cert, i) => { %>
+        <p<% if (i < site.certifications.length - 1) { %> class="cert"<% } %>><%= cert.name %> &middot; <%= cert.issuer %> &middot; <%= cert.date %><% if (cert.url) { %> &middot; <a href="<%= cert.url %>" target="_blank" rel="noopener">Verify</a><% } %></p>
+        <% }) %>
+        <% } %>
         <% if (site.recognition) { %>
         <h3>Recognition</h3>
         <p><%= site.recognition %></p>

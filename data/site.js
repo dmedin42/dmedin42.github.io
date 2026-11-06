@@ -130,6 +130,10 @@ module.exports = {
   education: [
     { title: "Bachelor of Science, Information Systems", year: "Dec 2027", detail: "Brigham Young University, Marriott School of Business · Systems Consulting emphasis" },
   ],
+  certifications: [
+    { name: "Professional Scrum Master I (PSM I)", issuer: "Scrum.org", date: "Oct 2026", url: "https://scrum.org/certificates/1358691" },
+    { name: "EY Technology Risk Virtual Job Simulation", issuer: "Forage", date: "Oct 2026" },
+  ],
   recognition: "DECA National Finalist · Advanced STEM Diploma",
 
   jobs: [
