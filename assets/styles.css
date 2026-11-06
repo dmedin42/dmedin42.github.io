@@ -172,7 +172,8 @@ p { margin: 0 0 1rem; }
 .where { color: var(--muted); font-size: 0.92rem; margin: 0 0 0.3rem; }
 .jobs p:last-child { margin-bottom: 0; }
 .label { color: var(--brand); font-weight: 700; }
-.skills p { margin-bottom: 0.35rem; }
+.skills p, .strengths p { margin-bottom: 0.35rem; }
+.strengths .top5 { color: var(--muted); font-size: 0.95rem; margin-bottom: 0.75rem; }
 .year { color: var(--muted); font-weight: 500; }
 .edu p { margin: 0 0 0.9rem; color: var(--muted); font-size: 0.95rem; }
 
