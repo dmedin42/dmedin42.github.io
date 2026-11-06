@@ -143,12 +143,14 @@ module.exports = {
     {
       title: "Workday Developer",
       org: "BYU Office of Information Technology",
+      project: "workday", // links the title to /projects/workday/
       dates: "Sep 2026 to present",
       summary: "Work with Finance and HR stakeholders to turn business needs into technical solutions, and automate their workflows with Workday Orchestrations.",
     },
     {
       title: "Technology Commercialization Analyst",
       org: "BYU Tech Transfer Office",
+      project: "tech-transfer", // links the title to /projects/tech-transfer/
       dates: "Sep 2025 to Sep 2026",
       summary: "Managed a portfolio of 55+ university technologies, coordinating with researchers, entrepreneurs, and industry partners. Developed and deployed full-stack web applications, including CloseChase, which I helped license to TeamOzy.",
     },
