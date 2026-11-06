@@ -310,6 +310,11 @@ nav.crumbs { margin: 0 0 1.25rem; background: none; border: 0; font-size: 0.88re
 .jobs > li:last-child { padding-bottom: 0; }
 .where { color: var(--muted); font-size: 0.92rem; margin: 0 0 0.3rem; }
 .jobs p:last-child { margin-bottom: 0; }
+/* Job titles that link to their project page, styled to read like plain text */
+.jobs h3 a { color: inherit; text-decoration: none; }
+.jobs h3 a .go { margin-left: 0.3rem; color: var(--muted); font-size: 0.85em; font-weight: 400; transition: color 0.15s, margin 0.15s; }
+.jobs h3 a:hover, .jobs h3 a:focus-visible { color: var(--accent); }
+.jobs h3 a:hover .go, .jobs h3 a:focus-visible .go { color: var(--accent); margin-left: 0.45rem; }
 .label { color: var(--accent); font-weight: 700; }
 .skills p, .strengths p { margin-bottom: 0.35rem; }
 .strengths .top5 { color: var(--muted); font-size: 0.95rem; margin-bottom: 0.75rem; }
