@@ -56,18 +56,18 @@ module.exports = {
       date: "2021 – 2022", place: "Senior year, CTEC Business", title: "Choosing the harder year",
       blocks: [
         { p: "During my junior year I met McKinna, who's now my wife. I also knew most of my friends would graduate and move away the next year. So instead of a relaxed senior year, I decided to do something I loved. I enrolled in CTEC's business program, taking finance, business management, economics and marketing, and joined DECA with my classmates." },
+        { photo: "/images/story/deca-nationals.jpg", width: 600, height: 800, alt: "David with two DECA teammates in front of a large steel sculpture at DECA Nationals in Atlanta", caption: "DECA Nationals in Atlanta" },
         { p: "DECA wasn't in my plan, but it came with a real opportunity: a business case for a real company, Whitaker Construction, a utilities and earthwork contractor in Brigham City. I built a solution to their problem and presented it to them and at competition. It won at Districts and Regionals and took me to Nationals in Atlanta." },
-        { photo: "/images/story/deca-nationals.jpg", width: 840, height: 1120, alt: "David with two DECA teammates in front of a large steel sculpture at DECA Nationals in Atlanta", caption: "DECA Nationals in Atlanta" },
         { lesson: "The best opportunities usually aren't in the plan. Say yes anyway." },
       ],
     },
     {
       date: "2022 – 2024", place: "Recife, Brazil", title: "Learning to be counted on",
       blocks: [
+        { photo: "/images/story/brazil.jpg", width: 624, height: 832, alt: "David in a suit and missionary name tag outside a lit temple at night in Brazil", caption: "Serving in Brazil" },
         { p: "After graduating in 2022, I served a two-year mission for The Church of Jesus Christ of Latter-day Saints in Recife, Brazil. I lived among the people and learned Portuguese from them. I worked harder than I'd imagined I could, made some of the best friends of my life, and fell in love with chocolate-stuffed-crust pizza. (It sounds gross. It isn't.)" },
         { p: "As finance secretary, I managed the mission's budget of more than R$3.5M a year. That covered the missionaries' cards, the mission president's and office expenses, and the reports on all of it. I also reworked unclear contracts with landlords so both sides knew exactly where they stood." },
         { lesson: "Being trusted with other people's money means being someone they can count on, every time.", label: "What the job taught me" },
-        { photo: "/images/story/brazil.jpg", width: 624, height: 832, alt: "David in a suit and missionary name tag outside a lit temple at night in Brazil", caption: "Serving in Brazil" },
         { p: "One man stuck with me. He wasn't looking for religion, but he was lonely, so I invited him to church. He said no. He did take a Book of Mormon, but when we came back, he had written “ESTE LIVRO É FALSO” (“this book is fake”) on it in permanent marker. I told him his feelings made sense, read a passage with him, and invited him to read and pray about it once more. The next time we visited, he had torn out the page he'd written on, and he was embarrassed about it." },
         { lesson: "Approach change with charity and understanding. If I were in his shoes, I'd probably feel the same way.", label: "What he taught me" },
       ],
