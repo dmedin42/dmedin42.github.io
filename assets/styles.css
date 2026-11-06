@@ -241,6 +241,7 @@ p { margin: 0 0 1rem; }
 .strengths .top5 { color: var(--muted); font-size: 0.95rem; margin-bottom: 0.75rem; }
 .year { color: var(--muted); font-weight: 500; }
 .edu p { margin: 0 0 0.9rem; color: var(--muted); font-size: 0.95rem; }
+.edu p.cert { margin-bottom: 0.35rem; }
 
 /* ---------- Story (About page) ---------- */
 .facts { list-style: none; padding: 0; margin: 0.25rem 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem 1.25rem; font-size: 0.93rem; }
