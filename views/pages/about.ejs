@@ -6,10 +6,40 @@
         <div class="split">
           <div>
             <% site.story.forEach(paragraph => { %><p><%= paragraph %></p><% }) %>
+            <% if (site.facts) { %>
+            <ul class="facts">
+              <% site.facts.forEach(fact => { %><li><span aria-hidden="true"><%= fact.emoji %></span> <%= fact.text %></li><% }) %>
+            </ul>
+            <% } %>
           </div>
           <%- include("../partials/photo", { src: site.photos.about, alt: site.name }) %>
         </div>
       </section>
+
+      <% if (site.journey) { %>
+      <section aria-labelledby="journey-h">
+        <h2 id="journey-h">How I Got Here <span class="emoji" aria-hidden="true">🗺️</span></h2>
+        <ol class="timeline">
+          <% site.journey.forEach(chapter => { %>
+          <li class="chapter">
+            <p class="when"><span class="date"><%= chapter.date %></span><% if (chapter.place) { %> &middot; <%= chapter.place %><% } %></p>
+            <h3><%= chapter.title %></h3>
+            <% chapter.blocks.forEach(block => { %>
+            <% if (block.p) { %><p><%= block.p %></p>
+            <% } else if (block.html) { %><p><%- block.html %></p>
+            <% } else if (block.lesson) { %><p class="lesson"><span class="label"><%= block.label || "What it taught me" %>:</span> <%= block.lesson %></p>
+            <% } else if (block.photo) { %>
+            <figure class="story-photo">
+              <img src="<%= block.photo %>" alt="<%= block.alt %>" width="<%= block.width %>" height="<%= block.height %>" loading="lazy">
+              <% if (block.caption) { %><figcaption><%= block.caption %></figcaption><% } %>
+            </figure>
+            <% } %>
+            <% }) %>
+          </li>
+          <% }) %>
+        </ol>
+      </section>
+      <% } %>
 
       <section aria-labelledby="skills-h" class="skills">
         <h2 id="skills-h">Skills <span class="emoji" aria-hidden="true">🧰</span></h2>
@@ -53,5 +83,16 @@
         </ul>
         <p style="margin-top:1.25rem"><a href="/projects/">Check out the projects I've built</a></p>
       </section>
+
+      <% if (site.cta) { %>
+      <section class="cta" aria-labelledby="cta-h">
+        <h2 id="cta-h"><%= site.cta.title %></h2>
+        <p><%= site.cta.text %></p>
+        <div class="btns">
+          <a class="btn primary" href="mailto:<%= site.links.email %>">Email me</a>
+          <a class="btn" href="<%= site.links.linkedin %>" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        </div>
+      </section>
+      <% } %>
 
 <%- include("../partials/footer") %>

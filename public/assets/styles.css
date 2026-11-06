@@ -242,6 +242,37 @@ p { margin: 0 0 1rem; }
 .year { color: var(--muted); font-weight: 500; }
 .edu p { margin: 0 0 0.9rem; color: var(--muted); font-size: 0.95rem; }
 
+/* ---------- Story (About page) ---------- */
+.facts { list-style: none; padding: 0; margin: 0.25rem 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem 1.25rem; font-size: 0.93rem; }
+.facts li { display: flex; gap: 0.5rem; align-items: baseline; }
+@media (max-width: 40rem) { .facts { grid-template-columns: 1fr; } }
+
+.timeline { list-style: none; margin: 0.5rem 0 0; padding: 0 0 0 1.6rem; border-left: 2px solid var(--line); }
+.chapter { position: relative; padding-bottom: 2.5rem; }
+.chapter:last-child { padding-bottom: 0.25rem; }
+.chapter::before {
+  content: ""; position: absolute; left: calc(-1.6rem - 7px); top: 0.4rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 0 4px var(--bg);
+}
+.when { margin: 0 0 0.2rem; font-size: 0.88rem; color: var(--muted); }
+.when .date { color: var(--accent); font-weight: 700; }
+.chapter h3 { font-size: 1.45rem; margin: 0 0 0.65rem; }
+.lesson {
+  margin: 0.25rem 0 1.1rem; padding: 0.75rem 1rem;
+  background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 8px;
+  font-weight: 500;
+}
+.lesson:last-child { margin-bottom: 0; }
+.story-photo { margin: 0.25rem 0 1.1rem; max-width: 20rem; }
+.story-photo img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 6px 18px var(--photo-shadow); }
+.story-photo figcaption { margin-top: 0.45rem; font-size: 0.85rem; color: var(--muted); }
+
+/* ---------- Call to action ---------- */
+.cta { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem 1.5rem 1.4rem; }
+.cta h2 { display: block; background: none; padding-bottom: 0; margin-bottom: 0.5rem; font-size: 1.6rem; }
+.cta p { color: var(--muted); margin-bottom: 0.25rem; }
+
 /* ---------- Footer ---------- */
 footer { background: var(--footer-bg); border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; padding: 1.5rem 1.25rem 2.5rem; }
 footer .col { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; }
