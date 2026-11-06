@@ -1,4 +1,4 @@
-<%# One project card. Pass: project, showStack (default true), extraLink (optional {href,label}). project.demoLabel overrides "Live demo". %>
+<%# One project card. Pass: project, showStack (default true), extraLink (optional {href,label}). project.demoLabel overrides "Live demo"; project.example adds a highlighted example inside the card. %>
 <% const withStack = typeof showStack === "undefined" ? true : showStack; %>
 <h3><%= project.name %></h3>
 <p><%= project.summary %></p>
@@ -15,4 +15,20 @@
   <% if (project.code) { %><a href="<%= project.code %>" target="_blank" rel="noopener">Code</a><% } %>
   <% if (hasExtra) { %><a href="<%= extraLink.href %>"><%= extraLink.label %></a><% } else if (project.demoNote && project.demo) { %><span class="note"><%= project.demoNote %></span><% } %>
 </p>
+<% } %>
+<% if (project.example) { const ex = project.example; %>
+<div class="example">
+  <p class="example-label"><%= ex.label || "Example" %></p>
+  <h4><%= ex.name %></h4>
+  <p><%= ex.summary %></p>
+  <% if (ex.outcome) { %><p class="outcome"><%= ex.outcome %></p><% } %>
+  <% if (ex.stack && ex.stack.length) { %>
+  <ul class="stack" aria-label="Built with">
+    <% ex.stack.forEach(tech => { %><li><%= tech %></li><% }) %>
+  </ul>
+  <% } %>
+  <% if (ex.demo) { %>
+  <p class="card-links"><a href="<%= ex.demo %>" target="_blank" rel="noopener"><%= ex.demoLabel || "Live demo" %></a><% if (ex.demoNote) { %><span class="note"><%= ex.demoNote %></span><% } %></p>
+  <% } %>
+</div>
 <% } %>

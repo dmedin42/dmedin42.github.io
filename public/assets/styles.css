@@ -225,6 +225,10 @@ p { margin: 0 0 1rem; }
 .card-links { margin: 0; font-weight: 500; }
 .card-links a + a { margin-left: 1.1rem; }
 .note { color: var(--muted); font-size: 0.88rem; font-weight: 400; margin-left: 0.4rem; }
+/* A highlighted example inside a project card */
+.example { margin: 0.9rem 0 0.25rem; padding: 0.9rem 1rem 0.85rem; background: var(--bg); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 8px; }
+.example-label { margin: 0 0 0.3rem; color: var(--muted); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.example h4 { font-size: 1rem; line-height: 1.3; margin: 0 0 0.3rem; }
 
 /* ---------- About ---------- */
 .jobs { list-style: none; padding: 0; margin: 0; }

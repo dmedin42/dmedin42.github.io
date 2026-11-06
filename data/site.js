@@ -109,13 +109,20 @@ module.exports = {
     },
     {
       id: "tto",
-      name: "CloseChase: Document Collection for Bookkeeping Firms",
-      summary: "A web app that lets bookkeeping firms request, collect, and track the documents they need from clients through one secure upload link, with no client account required. I built it at the BYU Tech Transfer Office and facilitated its licensing.",
-      outcome: "Licensed to TeamOzy and live in beta.",
+      name: "Web Applications for the BYU Tech Transfer Office",
+      summary: "Full-stack web applications developed and deployed at the BYU Tech Transfer Office, where I managed a portfolio of 55+ university technologies.",
       stack: ["Claude AI", "Supabase", "SQL", "Git"],
-      demo: "https://teamozy.org/products/closechase",
-      demoLabel: "Live beta",
-      demoNote: "Free to try during the beta",
+      // A highlighted example shown inside this card.
+      example: {
+        label: "Example I licensed",
+        name: "CloseChase: Document Collection for Bookkeeping Firms",
+        summary: "A web app that lets bookkeeping firms request, collect, and track the documents they need from clients through one secure upload link, with no client account required. I built it at the BYU Tech Transfer Office and facilitated its licensing.",
+        outcome: "Licensed to TeamOzy and live in beta.",
+        stack: ["Claude AI", "Supabase", "SQL", "Git"],
+        demo: "https://teamozy.org/products/closechase",
+        demoLabel: "Live beta",
+        demoNote: "Free to try during the beta",
+      },
     },
   ],
 };
