@@ -230,6 +230,80 @@ p { margin: 0 0 1rem; }
 .example-label { margin: 0 0 0.3rem; color: var(--muted); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 .example h4 { font-size: 1rem; line-height: 1.3; margin: 0 0 0.3rem; }
 
+/* ---------- Project cards (Projects page grid and "More projects") ---------- */
+.project-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.project-grid > li { display: flex; }
+.project-grid > .wide { grid-column: 1 / -1; }
+@media (max-width: 40rem) { .project-grid { grid-template-columns: 1fr; } }
+.pcard {
+  position: relative; display: flex; flex-direction: column; width: 100%;
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  padding: 1.15rem 1.25rem 1rem;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.pcard:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 22px var(--photo-shadow); }
+.pcard:focus-within { border-color: var(--accent); }
+.pcard h2, .pcard h3 { display: block; background: none; padding: 0; margin: 0 0 0.1rem; font-size: 1.35rem; line-height: 1.25; }
+.wide .pcard h2 { font-size: 1.6rem; }
+.pcard h2 a, .pcard h3 a { color: var(--heading); text-decoration: none; }
+.pcard h2 a::after, .pcard h3 a::after { content: ""; position: absolute; inset: 0; border-radius: 12px; }
+.pcard h2 a:focus-visible, .pcard h3 a:focus-visible { outline: none; }
+.pcard h2 a:focus-visible::after, .pcard h3 a:focus-visible::after { outline: 3px solid var(--focus); outline-offset: 2px; }
+.pcard .kind { margin: 0 0 0.6rem; color: var(--muted); font-size: 0.92rem; }
+.pcard .summary { margin: 0 0 0.6rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.pcard .outcome { margin: 0 0 0.9rem; font-size: 0.95rem; }
+.pcard-meta { margin: auto 0 0; padding-top: 0.75rem; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.6rem; font-size: 0.86rem; color: var(--muted); }
+.pcard-meta .more { margin-left: auto; color: var(--accent); font-weight: 500; }
+.pcard:hover .pcard-meta .more { text-decoration: underline; }
+.status {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.05rem 0.6rem; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--tag-bg); color: var(--text); font-size: 0.8rem; font-weight: 500; white-space: nowrap;
+}
+.status::before { content: ""; width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--accent); }
+.pcard-cta { background: transparent; border-style: dashed; }
+.pcard-cta:hover { transform: none; box-shadow: none; }
+.pcard-cta h2 { margin-bottom: 0.35rem; }
+.pcard-cta p { color: var(--muted); margin-bottom: 0.25rem; }
+
+/* ---------- Project detail pages ---------- */
+nav.crumbs { margin: 0 0 1.25rem; background: none; border: 0; font-size: 0.88rem; color: var(--muted); }
+.crumbs ol { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.crumbs li + li::before { content: "\203A"; margin-right: 0.35rem; }
+.crumbs a { display: inline; padding: 0; border: 0; color: var(--muted); font-size: inherit; font-weight: 400; text-decoration: none; }
+.crumbs a:hover { color: var(--accent); text-decoration: underline; }
+.project-head h1 { margin-bottom: 0.5rem; }
+.project-head .subtitle { margin: 0 0 0.5rem; font-size: 1.15rem; font-weight: 500; }
+.meta { margin: 0 0 1rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.6rem; color: var(--muted); font-size: 0.92rem; }
+.meta .dot { opacity: 0.6; }
+.project-head .btns { margin-top: 0.25rem; align-items: center; }
+.project-head .btns .note { margin-left: 0.15rem; }
+.stats { list-style: none; padding: 0; margin: 1.75rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 0.75rem; }
+.stats li { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 0.85rem 1rem 0.8rem; }
+.stats strong { display: block; color: var(--accent); font-size: 1.9rem; line-height: 1.1; }
+.stats span { color: var(--muted); font-size: 0.92rem; }
+.article { margin-top: 2.5rem; }
+.article h2 { display: block; background: none; padding: 0; margin: 0 0 0.75rem; font-size: 1.5rem; }
+.article section { margin-bottom: 2.25rem; }
+.points { padding-left: 1.2rem; margin: 0 0 1rem; }
+.points li { margin-bottom: 0.55rem; }
+.points li::marker { color: var(--accent); }
+.points strong { color: var(--heading); }
+.example-box { margin: 1rem 0; padding: 1.1rem 1.15rem 1rem; background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 10px; }
+.example-box h3 { font-size: 1.2rem; margin: 0 0 0.4rem; }
+.example-box p:last-child { margin-bottom: 0; }
+.example-box + .example-box { margin-top: 1rem; }
+/* Situation / Task / Action / Result rows inside a project box */
+.star { margin: 0.6rem 0 0; display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.55rem 1rem; }
+.star dt { padding-top: 0.2rem; color: var(--accent); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.star dd { margin: 0; }
+.star .points { margin: 0; }
+.star .points li:last-child { margin-bottom: 0; }
+@media (max-width: 30rem) { .star { grid-template-columns: 1fr; gap: 0.1rem; } .star dd { margin-bottom: 0.6rem; } }
+.related h2 { font-size: 1.5rem; }
+.related .pcard h3 { font-size: 1.15rem; }
+.back { margin: 1.5rem 0 0; font-weight: 500; }
+
 /* ---------- About ---------- */
 .jobs { list-style: none; padding: 0; margin: 0; }
 .jobs > li { padding-bottom: 1.25rem; }

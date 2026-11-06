@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Projects | David Medina</title>
-  <meta name="description" content="Projects by David Medina, including LexiTrack, an AI reading assessment platform.">
+  <meta name="description" content="Projects by David Medina: LexiTrack, TwoFold, Study Smarter AI, web apps for the BYU Tech Transfer Office, and Workday integrations at BYU.">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../favicon.ico" sizes="32x32">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/styles.css?v=d43d0bfb">
+  <link rel="stylesheet" href="../assets/styles.css?v=a929c607">
 </head>
 <body>
   <a class="skip" href="#main">Skip to main content</a>
@@ -48,55 +48,63 @@
 
       <section aria-labelledby="projects-h">
         <h1 id="projects-h">Projects <span class="emoji" aria-hidden="true">🛠️</span></h1>
-        <p class="lede">Things I've built to take manual work off people's plates.</p>
-        <ul class="projects">
-
-          <li class="project">
-            <h3>LexiTrack: AI Reading Assessment Platform</h3>
-            <p>A progressive web app that automates pronunciation assessments, so teachers no longer score each student's reading by hand.</p>
-            <p class="outcome">Saves teachers 30 days of instruction time per year.</p>
-            <ul class="stack" aria-label="Built with">
-              <li>Azure Speech Assessment</li>
-              <li>Supabase</li>
-              <li>Vercel</li>
-            </ul>
-            <p class="card-links"><a href="https://lexitrackedu.com" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/dmedin42/lexitrack" target="_blank" rel="noopener">Code</a><span class="note">Try Sandbox Mode, no account needed</span></p>
+        <p class="lede">Things I've built to take manual work off people's plates. Pick one to see the problem, what I built, and how it turned out.</p>
+        <ul class="project-grid">
+          <li class="wide">
+            <article class="pcard">
+              <h2><a href="workday/">Workday</a></h2>
+              <p class="kind">Workday Developer &middot; BYU Office of Information Technology</p>
+              <p class="summary">I build Workday reports, integrations, data loads, exports and automations across HR and finance. Right now I'm connecting Workday to new software for BYU's facilities department.</p>
+              <p class="outcome">Automating workflows with Workday Orchestrations to streamline business processes.</p>
+              <p class="pcard-meta"><span class="status">Current role</span><span>2026&ndash;now</span><span class="more" aria-hidden="true">View project &rarr;</span></p>
+            </article>
           </li>
-
-          <li class="project">
-            <h3>TwoFold: AI-Powered Food Waste Reduction App</h3>
-            <p>A progressive web app that tracks a home pantry automatically: what is in it, what is about to expire, and recipes that use it up.</p>
-            <p class="outcome">Reduced household food waste by 50%.</p>
-            <ul class="stack" aria-label="Built with">
-              <li>Gemini AI</li>
-              <li>Supabase</li>
-              <li>Vercel</li>
-            </ul>
-            <p class="card-links"><a href="https://twofoldkitchen.com" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/dmedin42/twofold" target="_blank" rel="noopener">Code</a><span class="note">Try it as a guest, no account needed</span></p>
+          <li>
+            <article class="pcard">
+              <h2><a href="lexitrack/">LexiTrack</a></h2>
+              <p class="kind">AI reading assessment platform</p>
+              <p class="summary">Students read aloud and the app scores every word, so teachers don't have to score by hand.</p>
+              <p class="outcome">Saves teachers 30 days of instruction time per year.</p>
+              <p class="pcard-meta"><span class="status">Live</span><span>2026</span><span class="more" aria-hidden="true">View project &rarr;</span></p>
+            </article>
           </li>
-
-          <li class="project">
-            <h3>Web Applications for the BYU Tech Transfer Office</h3>
-            <p>Full-stack web applications developed and deployed at the BYU Tech Transfer Office, where I managed a portfolio of 55+ university technologies.</p>
-            <ul class="stack" aria-label="Built with">
-              <li>Claude AI</li>
-              <li>Supabase</li>
-              <li>SQL</li>
-              <li>Git</li>
-            </ul>
-            <div class="example">
-              <p class="example-label">Example I licensed</p>
-              <h4>CloseChase: Document Collection for Bookkeeping Firms</h4>
-              <p>A web app that lets bookkeeping firms request, collect, and track the documents they need from clients through one secure upload link, with no client account required. I built it at the BYU Tech Transfer Office and facilitated its licensing.</p>
-              <p class="outcome">Licensed to TeamOzy and live in beta.</p>
-              <ul class="stack" aria-label="Built with">
-                <li>React</li>
-                <li>JavaScript</li>
-              </ul>
-              <p class="card-links"><a href="https://teamozy.org/products/closechase" target="_blank" rel="noopener">Live beta</a><span class="note">Free to try during the beta</span></p>
+          <li>
+            <article class="pcard">
+              <h2><a href="twofold/">TwoFold</a></h2>
+              <p class="kind">AI-powered food waste reduction app</p>
+              <p class="summary">Tracks a home pantry automatically: what's in it, what's about to expire, and recipes that use it up.</p>
+              <p class="outcome">Reduced household food waste by 50%.</p>
+              <p class="pcard-meta"><span class="status">Live</span><span>2025</span><span class="more" aria-hidden="true">View project &rarr;</span></p>
+            </article>
+          </li>
+          <li>
+            <article class="pcard">
+              <h2><a href="study-smarter-ai/">Study Smarter AI</a></h2>
+              <p class="kind">AI study companion connected to Canvas</p>
+              <p class="summary">Gives every assignment an AI tutor, then turns finished work into spaced-repetition reviews.</p>
+              <p class="outcome">Reduces my study load right before quizzes and tests.</p>
+              <p class="pcard-meta"><span class="status">In use</span><span>2026</span><span class="more" aria-hidden="true">View project &rarr;</span></p>
+            </article>
+          </li>
+          <li>
+            <article class="pcard">
+              <h2><a href="tech-transfer/">Web Applications for the BYU Tech Transfer Office</a></h2>
+              <p class="kind">Including CloseChase, licensed to TeamOzy</p>
+              <p class="summary">Full-stack apps and 80+ prototypes I built while managing 55+ university technologies.</p>
+              <p class="outcome">CloseChase is licensed to TeamOzy and live in beta.</p>
+              <p class="pcard-meta"><span class="status">Licensed</span><span>2025&ndash;26</span><span class="more" aria-hidden="true">View project &rarr;</span></p>
+            </article>
+          </li>
+          <li class="wide">
+            <div class="pcard pcard-cta">
+              <h2>Have a process that should run itself?</h2>
+              <p>I like turning slow, manual work into something that just happens. If you have one in mind, I'd love to hear about it.</p>
+              <div class="btns">
+                <a class="btn primary" href="mailto:d.medina2332@gmail.com">Email me</a>
+                <a class="btn" href="https://www.linkedin.com/in/davidmedina42" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
             </div>
           </li>
-
         </ul>
       </section>
 
