@@ -1,5 +1,7 @@
 // Express app: routes, view engine, and static files.
 // server.js starts it; scripts/build-static.js renders it to plain HTML.
+const crypto = require("crypto");
+const fs = require("fs");
 const path = require("path");
 const express = require("express");
 const site = require("./data/site");
@@ -11,6 +13,11 @@ app.set("views", path.join(__dirname, "views"));
 
 // Values every view can use: site content and the current year.
 app.locals.site = site;
+// A short fingerprint of each asset goes in its URL (?v=...), so browsers fetch
+// the new file as soon as it changes instead of reusing a cached copy.
+const fingerprint = (file) =>
+  crypto.createHash("sha1").update(fs.readFileSync(path.join(__dirname, "public", file))).digest("hex").slice(0, 8);
+app.locals.assets = { css: fingerprint("assets/styles.css"), js: fingerprint("assets/script.js") };
 app.locals.year = new Date().getFullYear();
 
 app.use(express.static(path.join(__dirname, "public")));

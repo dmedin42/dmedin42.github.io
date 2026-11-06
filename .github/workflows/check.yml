@@ -25,6 +25,7 @@ jobs:
           done
           grep -q 'aria-current="page"' dist/about/index.html
           grep -q 'class="theme-toggle"' dist/index.html
+          grep -q 'assets/styles.css?v=' dist/about/index.html
 
       - name: Start server and check routes
         run: |
