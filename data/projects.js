@@ -53,17 +53,17 @@ module.exports = [
             </dl>
           </div>
           <div class="example-box">
-            <p class="example-label">Completed &middot; First assignments</p>
-            <h3>Orchestration Rebuild and Stakeholder Reports</h3>
+            <p class="example-label">Completed &middot; First assignment</p>
+            <h3>Orchestration Rebuild</h3>
             <dl class="star">
               <dt>Situation</dt>
-              <dd>When I joined the team, an existing Workday Orchestration had bugs, and stakeholders needed reports, including historical I-9 data.</dd>
+              <dd>When I joined the team, an existing Workday Orchestration had bugs.</dd>
               <dt>Task</dt>
-              <dd>Get the Orchestration working and build the reports stakeholders asked for.</dd>
+              <dd>Get the Orchestration working reliably.</dd>
               <dt>Action</dt>
-              <dd>Instead of patching the bugs, I rebuilt the whole Orchestration to be simpler and faster, with stronger error handling. I also built reports for stakeholders, including historical I-9 reports.</dd>
+              <dd>Instead of patching the bugs, I rebuilt the whole Orchestration to be simpler and faster, with stronger error handling.</dd>
               <dt>Result</dt>
-              <dd>The Orchestration is simpler, runs faster and handles errors better, and stakeholders have the reports they needed.</dd>
+              <dd>The Orchestration is simpler, runs faster and handles errors better.</dd>
             </dl>
           </div>
 `],
