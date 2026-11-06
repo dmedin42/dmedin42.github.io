@@ -1,4 +1,4 @@
-<%# One project card. Pass: project, showStack (default true), extraLink (optional {href,label}) %>
+<%# One project card. Pass: project, showStack (default true), extraLink (optional {href,label}). project.demoLabel overrides "Live demo". %>
 <% const withStack = typeof showStack === "undefined" ? true : showStack; %>
 <h3><%= project.name %></h3>
 <p><%= project.summary %></p>
@@ -11,7 +11,7 @@
 <% const hasExtra = typeof extraLink !== "undefined" && extraLink; %>
 <% if (project.demo || project.code || hasExtra) { %>
 <p class="card-links">
-  <% if (project.demo) { %><a href="<%= project.demo %>" target="_blank" rel="noopener">Live demo</a><% } %>
+  <% if (project.demo) { %><a href="<%= project.demo %>" target="_blank" rel="noopener"><%= project.demoLabel || "Live demo" %></a><% } %>
   <% if (project.code) { %><a href="<%= project.code %>" target="_blank" rel="noopener">Code</a><% } %>
   <% if (hasExtra) { %><a href="<%= extraLink.href %>"><%= extraLink.label %></a><% } else if (project.demoNote && project.demo) { %><span class="note"><%= project.demoNote %></span><% } %>
 </p>

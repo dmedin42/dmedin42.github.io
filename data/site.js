@@ -69,7 +69,7 @@ module.exports = {
       title: "Technology Commercialization Analyst",
       org: "BYU Tech Transfer Office",
       dates: "Sep 2025 to Sep 2026",
-      summary: "Managed a portfolio of 55+ university technologies, coordinating with researchers, entrepreneurs, and industry partners. Developed and deployed full-stack web applications.",
+      summary: "Managed a portfolio of 55+ university technologies, coordinating with researchers, entrepreneurs, and industry partners. Developed and deployed full-stack web applications, including CloseChase, which I helped license to TeamOzy.",
     },
     {
       title: "Financial Advisor",
@@ -109,10 +109,13 @@ module.exports = {
     },
     {
       id: "tto",
-      // TODO: give this the real name of the app, say what it does, and add a measured outcome
-      name: "Web Applications for the BYU Tech Transfer Office",
-      summary: "Full-stack web applications developed and deployed at the BYU Tech Transfer Office, where I managed a portfolio of 55+ university technologies.",
+      name: "CloseChase: Document Collection for Bookkeeping Firms",
+      summary: "A web app that lets bookkeeping firms request, collect, and track the documents they need from clients through one secure upload link, with no client account required. I built it at the BYU Tech Transfer Office and facilitated its licensing.",
+      outcome: "Licensed to TeamOzy and live in beta.",
       stack: ["Claude AI", "Supabase", "SQL", "Git"],
+      demo: "https://teamozy.org/products/closechase",
+      demoLabel: "Live beta",
+      demoNote: "Free to try during the beta",
     },
   ],
 };
