@@ -18,6 +18,16 @@
         <% }) %>
       </section>
 
+      <% if (site.strengths) { %>
+      <section aria-labelledby="strengths-h" class="strengths">
+        <h2 id="strengths-h">My Strengths <span class="emoji" aria-hidden="true">🧭</span></h2>
+        <p class="top5">CliftonStrengths Top 5: <%= site.strengths.top5.join(" · ") %></p>
+        <% site.strengths.highlights.forEach(item => { %>
+        <p><span class="label"><%= item.label %>:</span> <%= item.text %></p>
+        <% }) %>
+      </section>
+      <% } %>
+
       <section aria-labelledby="edu-h" class="edu">
         <h2 id="edu-h">Education <span class="emoji" aria-hidden="true">🎓</span></h2>
         <% site.education.forEach(degree => { %>

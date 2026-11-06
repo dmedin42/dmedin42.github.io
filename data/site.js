@@ -42,6 +42,17 @@ module.exports = {
     { label: "Consulting", items: "Stakeholder management, process improvement, project management" },
   ],
 
+  // CliftonStrengths Top 5, each tied to something I've actually done.
+  strengths: {
+    top5: ["Competition", "Achiever", "Relator", "Deliberative", "Arranger"],
+    highlights: [
+      { label: "Competition and Achiever", text: "I set a high bar and outwork it, like generating $48,000 in revenue in my first 45 days at Lease End." },
+      { label: "Relator", text: "I build lasting working relationships, like the ones with researchers and industry partners behind 55+ technologies at the Tech Transfer Office." },
+      { label: "Deliberative", text: "I check the details before I act, which mattered when auditing a R$3.5M annual budget in Brazil." },
+      { label: "Arranger", text: "I fit people and systems together, turning what Finance and HR need into Workday automations." },
+    ],
+  },
+
   education: [
     { title: "Bachelor of Science, Information Systems", year: "Dec 2027", detail: "Brigham Young University, Marriott School of Business · Systems Consulting emphasis" },
   ],
