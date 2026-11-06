@@ -24,6 +24,7 @@ jobs:
             test -s "dist/$f" || { echo "Missing dist/$f"; exit 1; }
           done
           grep -q 'aria-current="page"' dist/about/index.html
+          grep -q 'class="theme-toggle"' dist/index.html
 
       - name: Start server and check routes
         run: |
@@ -41,7 +42,8 @@ jobs:
           check /projects   200 "LexiTrack"
           check /projects/  200 "LexiTrack"
           check /nope       404 "Page not found"
-          check /assets/styles.css 200 "--brand"
+          check /assets/styles.css 200 "data-theme=\"light\""
+          check /assets/script.js 200 "theme-toggle"
           check /images/headshot.jpg 200 ""
           check /resume.pdf 200 "PDF"
           check /favicon.svg 200 "svg"
