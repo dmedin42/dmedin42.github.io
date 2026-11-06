@@ -41,6 +41,7 @@ jobs:
           check /about      200 "My Story"
           check /about/     200 "My Story"
           check /about/     200 "How I Got Here"
+          check /about/     200 'id="work"'
           check /about/     200 "From backlog to license"
           check /about/     200 "Want to work together?"
           check /about/     200 "Professional Scrum Master I"

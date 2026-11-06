@@ -10,7 +10,7 @@ module.exports = {
     email: "d.medina2332@gmail.com",
     linkedin: "https://www.linkedin.com/in/davidmedina42",
     github: "https://github.com/dmedin42",
-    resume: "/resume.pdf",
+    resume: "/about/#work", // the My Work section of the About page
   },
 
   // Photos: drop files into public/images/. Missing photos show a placeholder.
