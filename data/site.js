@@ -131,7 +131,7 @@ module.exports = {
   },
 
   education: [
-    { title: "Bachelor of Science, Information Systems", year: "Dec 2027", detail: "Brigham Young University, Marriott School of Business · Systems Consulting emphasis" },
+    { title: "Bachelor of Science, Information Systems", year: "Dec 2027", detail: "Brigham Young University, Marriott School of Business · Systems Consulting emphasis · IS GPA 3.74" },
   ],
   // Relevant coursework on the About page. Mark a course true while it's in progress.
   coursework: {
