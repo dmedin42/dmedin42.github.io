@@ -321,6 +321,20 @@ nav.crumbs { margin: 0 0 1.25rem; background: none; border: 0; font-size: 0.88re
 .year { color: var(--muted); font-weight: 500; }
 .edu p { margin: 0 0 0.9rem; color: var(--muted); font-size: 0.95rem; }
 .edu p.cert { margin-bottom: 0.35rem; }
+/* Relevant coursework: three groups side by side, course code then name */
+.coursework { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem 1.5rem; margin: 0.35rem 0 0.5rem; }
+.coursework h4 { margin: 0 0 0.55rem; color: var(--muted); font-size: 0.86rem; font-weight: 600; }
+.coursework ul { list-style: none; margin: 0; padding: 0; }
+.coursework li { margin-bottom: 0.6rem; font-size: 0.9rem; line-height: 1.35; }
+.coursework .code { display: block; color: var(--muted); font-size: 0.76rem; letter-spacing: 0.03em; white-space: nowrap; }
+.coursework .now, .course-note .now { color: var(--accent); margin-left: 0.3rem; }
+.course-note .now { margin-left: 0; }
+.edu p.course-note { font-size: 0.82rem; margin-bottom: 1.2rem; }
+@media (max-width: 40rem) {
+  .coursework { grid-template-columns: 1fr; gap: 0.9rem; }
+  .coursework li { display: grid; grid-template-columns: 5.2rem 1fr; gap: 0.5rem; margin-bottom: 0.4rem; }
+  .coursework .code { font-size: 0.82rem; padding-top: 0.08rem; }
+}
 
 /* ---------- Story (About page) ---------- */
 .facts { list-style: none; padding: 0; margin: 0.25rem 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem 1.25rem; font-size: 0.93rem; }
