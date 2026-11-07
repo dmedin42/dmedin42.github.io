@@ -64,6 +64,22 @@
         <h3><%= degree.title %> <span class="year">(<%= degree.year %>)</span></h3>
         <p><%= degree.detail %></p>
         <% }) %>
+        <% if (site.coursework) { %>
+        <h3>Relevant Coursework</h3>
+        <div class="coursework">
+          <% site.coursework.groups.forEach(group => { %>
+          <div>
+            <h4><%= group.name %></h4>
+            <ul>
+              <% group.courses.forEach(([code, title, now]) => { %>
+              <li><span class="code"><%= code %></span><span><%= title %><% if (now) { %><span class="now" title="In progress">&bull;</span><% } %></span></li>
+              <% }) %>
+            </ul>
+          </div>
+          <% }) %>
+        </div>
+        <p class="course-note"><span class="now" aria-hidden="true">&bull;</span> <%= site.coursework.note %></p>
+        <% } %>
         <% if (site.certifications && site.certifications.length) { %>
         <h3>Certifications</h3>
         <% site.certifications.forEach((cert, i) => { %>

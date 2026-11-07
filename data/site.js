@@ -133,6 +133,31 @@ module.exports = {
   education: [
     { title: "Bachelor of Science, Information Systems", year: "Dec 2027", detail: "Brigham Young University, Marriott School of Business · Systems Consulting emphasis" },
   ],
+  // Relevant coursework on the About page. Mark a course true while it's in progress.
+  coursework: {
+    note: "In progress, Fall 2026",
+    groups: [
+      { name: "Building systems", courses: [
+        ["IS 303", "Introduction to Computer Programming"],
+        ["IS 403", "Principles of Business Programming", true],
+        ["IS 401", "Project Management and Systems Design", true],
+        ["IS 404", "IT Infrastructure", true],
+      ] },
+      { name: "Data and analysis", courses: [
+        ["IS 201", "Introduction to Information Systems"],
+        ["IS 402", "Database Systems", true],
+        ["IS 110", "Spreadsheets and Business Analysis"],
+        ["STAT 121", "Introduction to Statistical Data Analysis"],
+      ] },
+      { name: "Business", courses: [
+        ["FIN 201", "Principles of Finance"],
+        ["ACC 200", "Principles of Accounting"],
+        ["MKTG 201", "Marketing Management"],
+        ["GSCM 201", "Global Supply Chain Management"],
+        ["M COM 320", "Management Communication"],
+      ] },
+    ],
+  },
   certifications: [
     { name: "Professional Scrum Master I (PSM I)", issuer: "Scrum.org", date: "Oct 2026", url: "https://scrum.org/certificates/1358691" },
     { name: "EY Technology Risk Virtual Job Simulation", issuer: "Forage", date: "Oct 2026" },

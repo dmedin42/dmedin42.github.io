@@ -50,6 +50,8 @@ jobs:
           check /projects/  200 "LexiTrack"
           check /projects/  200 'class="project-grid"'
           check /projects/  200 "Study Smarter AI"
+          check /about/     200 "Relevant Coursework"
+          check /about/     200 "Database Systems"
           check /projects/workday/          200 "Integrations for BYU"
           check /projects/workday/          200 'class="star"'
           check /projects/lexitrack         200 "My mom is a teacher"
