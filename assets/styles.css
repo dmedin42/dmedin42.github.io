@@ -299,6 +299,14 @@ nav.crumbs { margin: 0 0 1.25rem; background: none; border: 0; font-size: 0.88re
 .star dd { margin: 0; }
 .star .points { margin: 0; }
 .star .points li:last-child { margin-bottom: 0; }
+
+/* Grouped case studies (Workday page) */
+.jump { margin: 0 0 0.5rem; color: var(--muted); font-size: 0.92rem; }
+.jump span { margin: 0 0.35rem; }
+.article h3.group { margin: 2.25rem 0 0.5rem; font-size: 1.35rem; color: var(--heading); }
+.example-box h4 { font-size: 1.2rem; line-height: 1.3; margin: 0 0 0.4rem; }
+.example-box .what { color: var(--muted); margin: 0 0 0.25rem; }
+.example-box .stack { margin: 0.9rem 0 0; }
 @media (max-width: 30rem) { .star { grid-template-columns: 1fr; gap: 0.1rem; } .star dd { margin-bottom: 0.6rem; } }
 .related h2 { font-size: 1.5rem; }
 .related .pcard h3 { font-size: 1.15rem; }

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Workday | David Medina</title>
-  <meta name="description" content="David Medina's work as a Workday Developer at BYU's Office of Information Technology, including integrations for BYU's facilities department.">
+  <meta name="description" content="David Medina's work as a Workday Developer at BYU's Office of Information Technology: his story and the ten Workday projects he built from scratch, including integrations for BYU's facilities department.">
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../../favicon.ico" sizes="32x32">
   <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/styles.css?v=f6a7ad43">
+  <link rel="stylesheet" href="../../assets/styles.css?v=b0ce571e">
 </head>
 <body>
   <a class="skip" href="#main">Skip to main content</a>
@@ -55,41 +55,229 @@
         <h1>Workday</h1>
         <p class="subtitle">Workday Developer &middot; BYU Office of Information Technology</p>
         <p class="meta"><span>Provo, Utah</span><span class="dot" aria-hidden="true">&middot;</span><span>Sep 2026 &ndash; now</span><span class="status">Current role</span></p>
-        <p class="lede">My current role, and the projects I'm building in it, newest first.</p>
+        <p class="lede">The story of my time on OIT's data team, and the ten Workday projects I built from scratch there.</p>
+        <ul class="stats" aria-label="Results">
+          <li><strong>10</strong><span>Workday projects built from scratch</span></li>
+          <li><strong>5</strong><span>integrations for BYU Facilities</span></li>
+          <li><strong>48</strong><span>test scenarios in my acceptance plans</span></li>
+        </ul>
       </header>
 
       <article class="article">
-        <section aria-labelledby="workday-s1">
-          <h2 id="workday-s1">Reporting, integrations and automation</h2>
-          <p>I'm a Workday Developer on the data team at BYU's Office of Information Technology. Our team works across every part of Workday, both HR and finance: reporting, integrations, data loads, exports and automations.</p>
-          <p>I work with Finance and HR stakeholders to turn what they need into technical solutions.</p>
+        <section aria-labelledby="story">
+          <h2 id="story">My story</h2>
+          <p>In September 2026 I joined the data team at BYU's Office of Information Technology as a Workday Developer. I was the newest member of a team that worked across every part of Workday, both HR and finance: reporting, integrations, data loads, exports and automations. I worked with Finance and HR stakeholders to turn what they needed into technical solutions.</p>
+          <p>The short version is <a href="../../about/#oit">in my story on the About page</a>. This is the longer one.</p>
+          <p>My first assignment was a Workday Orchestration that had bugs. Instead of patching them, I rebuilt it to be simpler and faster, with stronger error handling. Then came my first big project: connecting Workday to the new software BYU's facilities department was adopting. That meant five integrations, each built from scratch.</p>
+          <p>The first lesson came from my lead. My first version of the hourly purchase order feed used prompts for the date range, and my lead pointed out that a scheduled feed has no one to answer them. That changed how I built. After that, I set dates with calculated fields so a feed could run with no one watching. On the same feed, I noticed each hourly run re-sent purchase orders it had already sent, so I changed it to send only what changed since the last completed run. The expense and invoice feeds worked the same way.</p>
+          <p>Part of the job was catching problems before they shipped. An outside Workday expert suggested a fix for a report that had to leave out contingent workers, and it worked on the two test cases. When I applied it to the real report, the output dropped from about 3,000 rows to about 300. Comparing the filters side by side, I found the fix removed every contingent worker, not just one subtype, which took out valid appointments like visiting faculty. I wrote up the root cause and a narrower fix instead, and the cut of about 90% never reached production.</p>
+          <p>I also built an orchestration from scratch in Workday Orchestrate that ran on its own whenever a candidate was hired, and fixed a bug in it once it was running in production. Then I designed a second one to set up supplier portal accounts automatically, a job the supplier support team had been doing by hand. Along the way I wrote a security troubleshooting guide for the team's shared workspace, and a Python script that handed older Workday cases off to Azure DevOps.</p>
         </section>
+
         <section aria-labelledby="workday-s2">
           <h2 id="workday-s2">Projects</h2>
-          <!-- Newest project first: add the next one above this box. -->
+          <p>Ten projects I built from scratch, plus the rebuild I started with. Each one has the same shape: the situation, my task, what I did (including what I had to redo), the result, and one lesson. Newest first within each group.</p>
+          <p class="jump">Jump to: <a href="#facilities">Facilities integrations</a> <span aria-hidden="true">&middot;</span> <a href="#orchestrations">Workday Orchestrations</a> <span aria-hidden="true">&middot;</span> <a href="#reporting-security">Reporting, security and tooling</a></p>
+          <!-- Newest project first within each group: add the next one above the first box in its group. -->
+
+          <h3 class="group" id="facilities">Integrations for BYU's Facilities Department</h3>
           <div class="example-box">
-            <p class="example-label">In progress &middot; BYU Facilities</p>
-            <h3>Integrations for BYU's Facilities Department</h3>
+            <p class="example-label">Overview</p>
             <dl class="star">
               <dt>Situation</dt>
-              <dd>BYU's facilities department is adopting new software, and it has to work with Workday.</dd>
+              <dd>BYU's facilities department was adopting new software, and it had to work with Workday.</dd>
               <dt>Task</dt>
-              <dd>Build the critical integrations between the new system and Workday.</dd>
+              <dd>Build the critical integrations between the new system and Workday, each one from scratch.</dd>
               <dt>Action</dt>
               <dd>
                 <ul class="points">
-                  <li><strong>Time.</strong> Time extracts and time reconciliation.</li>
-                  <li><strong>Purchasing.</strong> Purchasing, purchase order details, and general ledger reconciliation.</li>
-                  <li><strong>Expenses and payments.</strong> Expense report details and invoice payments.</li>
+                  <li><strong>Time.</strong> A <a href="#time-extract">daily time data extract</a> for time reconciliation.</li>
+                  <li><strong>Purchasing.</strong> An <a href="#po-feed">hourly purchase order feed</a> and a <a href="#gl-extract">monthly general ledger extract</a> for reconciliation.</li>
+                  <li><strong>Expenses and payments.</strong> A <a href="#pcard-feed">purchasing card expense feed</a> and a <a href="#invoice-export">supplier invoice export</a> for invoice payments.</li>
                 </ul>
               </dd>
               <dt>Result</dt>
-              <dd>In progress.</dd>
+              <dd>Five integrations built from scratch, including a purchasing card feed that was migrated and validated in production.</dd>
             </dl>
           </div>
-          <div class="example-box">
-            <p class="example-label">Completed &middot; First assignment</p>
-            <h3>Orchestration Rebuild</h3>
+
+          <div class="example-box" id="gl-extract">
+            <p class="example-label">Oct 2026</p>
+            <h4>Monthly General Ledger Extract Across Fiscal Years</h4>
+            <p class="what">Pulls last month's journal lines every month and picks the right fiscal year on its own, even when last month belongs to the previous one.</p>
+            <dl class="star">
+              <dt>Situation</dt>
+              <dd>The department needed the previous month's general ledger journal lines every month, through an EIB that would run with no one watching.</dd>
+              <dt>Task</dt>
+              <dd>Build the report and EIB from scratch so it always pulls the right month and fiscal year, with no one answering prompts.</dd>
+              <dt>Action</dt>
+              <dd>
+                <ul class="points">
+                  <li>Built the journal lines report, with calculated fields for the first and last day of the previous month.</li>
+                  <li>Hit a required Year prompt tied to today, which would pick the wrong fiscal year whenever last month fell in a different one. It expects a Fiscal Year instance, so no date or text field could fill it.</li>
+                  <li>Ruled out the delivered defaults, none of which returns the prior fiscal year, and a Lookup Related Value workaround that added new required prompts.</li>
+                  <li>Found a delivered default, Fiscal Year for Start Date and End Date, that reads two date prompts the report already had. Pointed both at a Date-typed chain for one month before today.</li>
+                </ul>
+              </dd>
+              <dt>Result</dt>
+              <dd>The Year prompt followed last month's date instead of today, with a run across the fiscal year boundary as the final check.</dd>
+              <dt>Lesson</dt>
+              <dd>When a prompt can't be removed, look for a delivered default that reads inputs you can control.</dd>
+            </dl>
+            <ul class="stack" aria-label="Built with"><li>Custom reports</li><li>EIB</li><li>Prompt defaults</li><li>Date calculated fields</li></ul>
+          </div>
+
+          <div class="example-box" id="invoice-export">
+            <p class="example-label">Complete &middot; Oct 2026</p>
+            <h4>Supplier Invoice Export with a Reconciliation Test Plan</h4>
+            <p class="what">A daily export of approved supplier invoice lines that let the facilities system close out purchase orders and record payments.</p>
+            <dl class="star">
+              <dt>Situation</dt>
+              <dd>The facilities system used invoice data to mark purchase orders complete and record receipts and payments, so its totals had to reconcile to Workday.</dd>
+              <dt>Task</dt>
+              <dd>Build the integration from scratch and prove it works before go-live.</dd>
+              <dt>Action</dt>
+              <dd>
+                <ul class="points">
+                  <li>Built the report on approved invoice lines, one row per line, with incremental logic that sends only lines that are new or changed since the last completed run.</li>
+                  <li>Set up a daily 5 AM JSON delivery to cloud storage, with header and lines in a single file.</li>
+                  <li>Wrote a 28-scenario test plan, with edge cases like 1-line and 250-line invoices, split lines, freight on the header or a line, punchout suppliers and invoices that span several purchase orders.</li>
+                  <li>Added reconciliation checks (lines plus freight equal the invoice total, and unit cost &times; quantity equals the extended amount), and planned every test to run as the integration account, not an admin.</li>
+                </ul>
+              </dd>
+              <dt>Result</dt>
+              <dd>One shared acceptance plan for business testers, the receiving system's support team and me before sign-off.</dd>
+              <dt>Lesson</dt>
+              <dd>Testing as an admin can hide a security gap that only appears when the integration account runs for real.</dd>
+            </dl>
+            <ul class="stack" aria-label="Built with"><li>Custom reports</li><li>Incremental logic</li><li>EIB</li><li>JSON</li><li>Test planning</li></ul>
+          </div>
+
+          <div class="example-box" id="po-feed">
+            <p class="example-label">Sep 2026</p>
+            <h4>Hourly Purchase Order Feed to an Asset System</h4>
+            <p class="what">An unattended feed that sent purchase order changes to the facilities asset management system every business hour.</p>
+            <dl class="star">
+              <dt>Situation</dt>
+              <dd>The asset management system needed every new or changed purchase order from Workday, hourly from 7 AM to 5 PM, with no one watching the runs.</dd>
+              <dt>Task</dt>
+              <dd>Build the integration from scratch: a custom report matching an approved field mapping, its security, and an hourly delivery.</dd>
+              <dt>Action</dt>
+              <dd>
+                <ul class="points">
+                  <li>Built the report on purchase order lines, using Lookup Related Value fields to bring header values like status and last-updated time onto each line.</li>
+                  <li>My first version used prompts for the date window. My lead pointed out that a scheduled feed has no one to answer them, so I replaced them with calculated fields and made the one remaining prompt optional so it could never stop a run.</li>
+                  <li>Fixed a datetime comparison alert by setting the calculated fields to the Moment type, to match the timestamp they compare against.</li>
+                  <li>Noticed the &ldquo;since midnight&rdquo; window re-sent the same purchase order every hour, and moved to sending only what changed since the last completed run.</li>
+                  <li>Wrote a 20-scenario test plan: incremental pickup, header-only and line-only changes, 1-line and 250-line orders, freight, status rules, rerun safety and delivery.</li>
+                </ul>
+              </dd>
+              <dt>Result</dt>
+              <dd>A feed built to run every hour with no prompts to answer and to send each change once.</dd>
+              <dt>Lesson</dt>
+              <dd>A calculated field doesn't inherit the type of the field it's compared to, so set Date or Moment yourself.</dd>
+            </dl>
+            <ul class="stack" aria-label="Built with"><li>Custom reports (RaaS)</li><li>Calculated fields</li><li>Integration system user</li><li>Cloud storage delivery</li></ul>
+          </div>
+
+          <div class="example-box" id="pcard-feed">
+            <p class="example-label">Complete &middot; Sep &ndash; Oct 2026</p>
+            <h4>Purchasing Card Expense Feed</h4>
+            <p class="what">An hourly feed that sent approved purchasing card expenses to the same asset system, carrying only records that changed since the last run.</p>
+            <dl class="star">
+              <dt>Situation</dt>
+              <dd>The asset system also needed purchasing card expense lines: approved, on one clearing project, approved in the last 30 days, and sent hourly from 7 AM to 5 PM.</dd>
+              <dt>Task</dt>
+              <dd>Build the integration from scratch, then migrate it to production and validate it end to end.</dd>
+              <dt>Action</dt>
+              <dd>
+                <ul class="points">
+                  <li>Built the report to pick up a record when either the expense report or the line changed since the last run, and an EIB that writes it to cloud storage as JSON every hour.</li>
+                  <li>Set both run-time inputs to the last completed integration event, in the integration and again in its schedule, which keeps its own copy.</li>
+                  <li>Fixed a functional constraints error by giving the integration account's security group View access to the expense reporting domain, and a migration error by moving the pieces in dependency order: security, calculated fields, report, then EIB.</li>
+                  <li>Traced a first scheduled run that failed in one second to having no earlier completed run to start from. A manual first run fixed it.</li>
+                </ul>
+              </dd>
+              <dt>Result</dt>
+              <dd>Built, migrated and validated in production, and every scheduled run after the first succeeded. The business confirmed the incremental design matched what they intended.</dd>
+              <dt>Lesson</dt>
+              <dd>A new incremental integration needs one manual run to give the schedule a starting point.</dd>
+            </dl>
+            <ul class="stack" aria-label="Built with"><li>Custom reports</li><li>Calculated fields</li><li>EIB</li><li>Launch parameters</li><li>Tenant migration</li></ul>
+          </div>
+
+          <div class="example-box" id="time-extract">
+            <p class="example-label">Complete &middot; Sep 2026</p>
+            <h4>Daily Time Data Extract for Reconciliation</h4>
+            <p class="what">A daily extract of approved time data, delivered to a reconciliation platform before the workday started.</p>
+            <dl class="star">
+              <dt>Situation</dt>
+              <dd>A reconciliation team needed the department's approved time data every day at 5 AM, delivered by SFTP with no one watching.</dd>
+              <dt>Task</dt>
+              <dd>Build the report and delivery from scratch, and make sure it was production-ready against the approved requirements.</dd>
+              <dt>Action</dt>
+              <dd>
+                <ul class="points">
+                  <li>Built the report with the department's cost center hierarchy built in rather than prompted, filtered to approved, reported time blocks only so calculated rollup blocks stay out.</li>
+                  <li>Set the date window with calculated fields and set up the daily SFTP delivery.</li>
+                  <li>Before production, checked every filter and prompt default against the requirements doc, down to which boxes were actually checked. Found three fixes: an out-of-scope Worker prompt, a filter with no comparison value, and date defaults to confirm against the pay period requirement.</li>
+                  <li>Flagged that the requirements doc was still in Draft, with its approvals and readiness checklist blank, and wrote a pre-migration checklist.</li>
+                </ul>
+              </dd>
+              <dt>Result</dt>
+              <dd>Caught three configuration defects and an unsigned requirements doc before go-live.</dd>
+              <dt>Lesson</dt>
+              <dd>Check a build against the requirements' checked boxes, not just their visible text.</dd>
+            </dl>
+            <ul class="stack" aria-label="Built with"><li>Custom reports</li><li>Calculated fields</li><li>Prompt defaults</li><li>SFTP delivery</li></ul>
+          </div>
+
+          <h3 class="group" id="orchestrations">Workday Orchestrations</h3>
+          <div class="example-box" id="supplier-portal">
+            <p class="example-label">Nov 2026</p>
+            <h4>Supplier Portal Account Provisioning</h4>
+            <p class="what">A planned boomerang orchestration, one that reads from Workday and writes back to it, that creates accounts for supplier contacts, emails their sign-in details and reports who hasn't signed in yet.</p>
+            <dl class="star">
+              <dt>Situation</dt>
+              <dd>The supplier support team created portal accounts by hand, emailed a generic password and fielded reset calls. Tracking lived in a spreadsheet, with no record of when the email went out or whether the contact ever signed in.</dd>
+              <dt>Task</dt>
+              <dd>Design and build the orchestration from scratch, starting with requirements the business could sign off on.</dd>
+              <dt>Action</dt>
+              <dd>
+                <ul class="points">
+                  <li>Turned the requirements meeting into recorded decisions: what triggers an account, how often it runs, and what waits for a later phase.</li>
+                  <li>Designed the flow: an hourly run finds contacts flagged for portal access with no account, creates one, assigns the supplier contact role and emails a temporary password.</li>
+                  <li>Wrote 16 functional and 6 email requirements, including a resume path for a run that creates the account but fails to send the email.</li>
+                  <li>Built security into the design: a least-privilege security group, a forced password change at first sign-in, and no temporary password in any log, message or file.</li>
+                  <li>Specified a daily report of outstanding sign-ons with five statuses, error handling with retries on the next run, acceptance criteria, and 13 open questions, with the 6 that block the build flagged.</li>
+                </ul>
+              </dd>
+              <dt>Result</dt>
+              <dd>A requirements draft ready for stakeholder review, aimed at lower fraud risk, no manual password emails and fewer reset calls.</dd>
+              <dt>Lesson</dt>
+              <dd>Design for the partial failure. An account created with no email sent is the case that strands a user.</dd>
+            </dl>
+            <ul class="stack" aria-label="Built with"><li>Workday Orchestrate</li><li>Account provisioning</li><li>Scheduled reports</li><li>Integration security</li></ul>
+          </div>
+
+          <div class="example-box" id="hire-orchestration">
+            <p class="example-label">Complete &middot; Oct 2026</p>
+            <h4>Hire-Triggered Orchestration</h4>
+            <p class="what">A boomerang orchestration that ran automatically when a candidate was hired.</p>
+            <dl class="star">
+              <dt>Task</dt>
+              <dd>Build the orchestration from scratch in Workday Orchestrate, a tool I had not used before.</dd>
+              <dt>Action</dt>
+              <dd>Learned Workday Orchestrate while building the orchestration, then found and fixed a bug once it was running in production.</dd>
+              <dt>Result</dt>
+              <dd>Complete, and it ran on its own whenever a candidate was hired.</dd>
+            </dl>
+            <ul class="stack" aria-label="Built with"><li>Workday Orchestrate</li></ul>
+          </div>
+
+          <div class="example-box" id="orchestration-rebuild">
+            <p class="example-label">Complete &middot; First assignment</p>
+            <h4>Orchestration Rebuild</h4>
             <dl class="star">
               <dt>Situation</dt>
               <dd>When I joined the team, an existing Workday Orchestration had bugs.</dd>
@@ -98,18 +286,98 @@
               <dt>Action</dt>
               <dd>Instead of patching the bugs, I rebuilt the whole Orchestration to be simpler and faster, with stronger error handling.</dd>
               <dt>Result</dt>
-              <dd>The Orchestration is simpler, runs faster and handles errors better.</dd>
+              <dd>The Orchestration was simpler, ran faster and handled errors better.</dd>
             </dl>
           </div>
+
+          <h3 class="group" id="reporting-security">Reporting, security and tooling</h3>
+          <div class="example-box" id="appointment-filter">
+            <p class="example-label">Complete &middot; Sep 2026</p>
+            <h4>Academic Appointment Filter and a Dual-Status Edge Case</h4>
+            <p class="what">A report filter that leaves out appointments tied to contingent workers, without dropping the appointments it should keep.</p>
+            <dl class="star">
+              <dt>Situation</dt>
+              <dd>An integration needed academic appointments, minus those tied to contingent workers. The hard case was people who were an employee and a contingent worker at the same time.</dd>
+              <dt>Task</dt>
+              <dd>Build the report and its filters from scratch, including that edge case.</dd>
+              <dt>Action</dt>
+              <dd>
+                <ul class="points">
+                  <li>Built the filters: primary academic appointment only, one excluded contingent worker subtype, faculty profile status and eligibility, and a trigger date. They worked for the general population, but dual-status workers still came through.</li>
+                  <li>Tested a fix suggested by an outside Workday expert in a separate test report. It resolved the two known edge cases, but on the real report it dropped the output from about 3,000 rows to about 300.</li>
+                  <li>Compared the two filter definitions side by side. The fix excluded every contingent worker, not just one subtype, so it removed valid appointments like visiting faculty. The reports' appointment sub-filters also checked different conditions, and the test report had only ever run on two hand-picked workers.</li>
+                  <li>Wrote a case review that reframed the fix: target workers who are an active employee and a contingent worker at once, keep the narrow subtype exclusion, and validate on the full population.</li>
+                </ul>
+              </dd>
+              <dt>Result</dt>
+              <dd>Stopped a fix that would have cut the report's output by about 90% from reaching production, and replaced it with a documented root cause and a precise next step.</dd>
+              <dt>Lesson</dt>
+              <dd>A fix that passes two test cases still has to be run against the full population.</dd>
+            </dl>
+            <ul class="stack" aria-label="Built with"><li>Report filters</li><li>Sub-level filters</li><li>Calculated fields</li></ul>
+          </div>
+
+          <div class="example-box" id="integration-security">
+            <p class="example-label">Complete &middot; Sep 2026</p>
+            <h4>Least-Privilege Security for Integration Accounts</h4>
+            <p class="what">A repeatable way to give each integration's service account exactly the access it needs, and no more.</p>
+            <dl class="star">
+              <dt>Situation</dt>
+              <dd>Every integration I built ran under its own integration system user and security group, set up from scratch. One account could own its report but couldn't be chosen as Run as System User when scheduling its EIB.</dd>
+              <dt>Task</dt>
+              <dd>Get each integration's security right with least privilege, and make the process repeatable for the team.</dd>
+              <dt>Action</dt>
+              <dd>
+                <ul class="points">
+                  <li>Created a security group for each integration under the team's naming standard, with only the domains its report needed.</li>
+                  <li>Traced the scheduling problem to the Integration Event domain, which governs launching and scheduling and is separate from Integration Build.</li>
+                  <li>Found a second, independent check: per-integration security, which can lock an EIB to specific security groups whatever their domain access.</li>
+                  <li>Wrote a five-step method (create the group, baseline the account's current groups, check report-level then field-level security, grant the domains, then check the data source), with a fallback of comparing against a similar integration that works.</li>
+                </ul>
+              </dd>
+              <dt>Result</dt>
+              <dd>A reusable troubleshooting guide in the team's shared workspace, covering setup and the two most common security failures.</dd>
+              <dt>Lesson</dt>
+              <dd>Owning a report and running an integration are secured by different domains.</dd>
+            </dl>
+            <ul class="stack" aria-label="Built with"><li>Integration system users</li><li>Security groups</li><li>Domain security</li></ul>
+          </div>
+
+          <div class="example-box" id="case-handoff">
+            <p class="example-label">Complete</p>
+            <h4>Case Handoff Automation Script</h4>
+            <p class="what">A Python script that handed older Workday cases off to Azure DevOps work items, told each requester where their work would continue, then closed and archived the case.</p>
+            <dl class="star">
+              <dt>Situation</dt>
+              <dd>Older Workday cases already linked to Azure DevOps work items needed a consistent handoff, and requesters needed to know where their work would continue.</dd>
+              <dt>Task</dt>
+              <dd>Build a repeatable way to find eligible cases, notify requesters, and close and archive the cases, without repeating any step if the script runs again.</dd>
+              <dt>Action</dt>
+              <dd>
+                <ul class="points">
+                  <li>Wrote a Python script that filters cases by configurable age, status, source and DevOps-link criteria, and checks that each linked work item exists before touching the case.</li>
+                  <li>Made preview mode the default, so a run lists what it would do before changing anything.</li>
+                  <li>Tracked each case's steps (email sent, case closed, case archived) in a local state database, so every step skips itself if it already happened and the script is safe to rerun.</li>
+                </ul>
+              </dd>
+              <dt>Result</dt>
+              <dd>A configurable preview-then-process workflow, with separate tracking for notifications and closures.</dd>
+              <dt>Lesson</dt>
+              <dd>Default to preview and track every side effect, and a bulk script becomes safe to run twice.</dd>
+            </dl>
+            <ul class="stack" aria-label="Built with"><li>Python</li><li>Azure DevOps</li><li>Local state database</li></ul>
+          </div>
         </section>
+
         <section aria-labelledby="workday-s3">
-          <h2 id="workday-s3">What I'm learning</h2>
-          <p>How to sit down with Finance and HR stakeholders, understand what they actually need, and turn it into something that works in Workday. I'm also learning what it takes to lead on a team.</p>
-          <p class="lesson"><span class="label">What it's teaching me:</span> Good leadership starts with being the teammate you'd want to have.</p>
+          <h2 id="workday-s3">What I learned</h2>
+          <p>How to sit down with Finance and HR stakeholders, understand what they actually needed, and turn it into something that worked in Workday. I also learned what it takes to lead on a team.</p>
+          <p>On the technical side, I learned to build things that hold up when no one is watching: no prompts to answer, only the changes since the last run, tests run as the account that will really do the work, and a plan for the step that fails halfway through.</p>
+          <p class="lesson"><span class="label">What it taught me:</span> Good leadership starts with being the teammate you'd want to have.</p>
         </section>
         <section aria-labelledby="workday-stack">
           <h2 id="workday-stack">Built with</h2>
-          <ul class="stack"><li>Workday</li><li>Workday Orchestrations</li><li>Workday reporting</li><li>API integrations</li></ul>
+          <ul class="stack"><li>Workday</li><li>Workday Orchestrate</li><li>Custom reports and RaaS</li><li>Calculated fields</li><li>EIB</li><li>Integration security</li><li>SFTP and cloud delivery</li><li>Python</li><li>Azure DevOps</li></ul>
         </section>
       </article>
 
@@ -135,7 +403,7 @@
             </article>
           </li>
         </ul>
-        <p class="back"><a href="../">&larr; All projects</a> <span class="note">or see my <a href="../../about/#work">work history</a></span></p>
+        <p class="back"><a href="../">&larr; All projects</a> <span class="note">or see <a href="../../about/#oit">my story</a> and <a href="../../about/#work">work history</a></span></p>
       </section>
 
     </div>
